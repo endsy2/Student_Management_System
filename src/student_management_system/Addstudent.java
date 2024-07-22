@@ -8,12 +8,12 @@ package student_management_system;
  *
  * @author MSI
  */
-public class Delete extends javax.swing.JFrame {
+public class Addstudent extends javax.swing.JFrame {
 
     /**
      * Creates new form Main_navigation
      */
-    public Delete() {
+    public Addstudent() {
         initComponents();
     }
 
@@ -211,13 +211,13 @@ public class Delete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void student_information_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_information_btnActionPerformed
-        Delete nav_Student_information=new Delete();
+        Addstudent nav_Student_information=new Addstudent();
         nav_Student_information.show();
         dispose();
     }//GEN-LAST:event_student_information_btnActionPerformed
 
     private void Addstudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Addstudent_btnActionPerformed
-        Delete nav_Addstudent=new Delete();
+        Addstudent nav_Addstudent=new Addstudent();
         nav_Addstudent.show();
         dispose();
     }//GEN-LAST:event_Addstudent_btnActionPerformed
@@ -275,22 +275,14 @@ public class Delete extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Addstudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Addstudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Addstudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Addstudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -303,7 +295,7 @@ public class Delete extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Delete().setVisible(true);
+                new Addstudent().setVisible(true);
             }
         });
     }

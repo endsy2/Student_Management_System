@@ -28,12 +28,13 @@ public class Course_management extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         student_information_btn = new javax.swing.JButton();
-        update_btn = new javax.swing.JButton();
+        Addstudent_btn = new javax.swing.JButton();
         delete_btn = new javax.swing.JButton();
         search_btn = new javax.swing.JButton();
         attendant = new javax.swing.JButton();
         Manage_course_btn = new javax.swing.JButton();
         home_btn = new javax.swing.JButton();
+        update_btn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
 
@@ -45,9 +46,9 @@ public class Course_management extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 573));
 
-        student_information_btn.setBackground(new java.awt.Color(242, 242, 242));
+        student_information_btn.setBackground(new java.awt.Color(153, 153, 255));
         student_information_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        student_information_btn.setForeground(new java.awt.Color(153, 153, 255));
+        student_information_btn.setForeground(new java.awt.Color(255, 255, 255));
         student_information_btn.setText("Student Information");
         student_information_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,13 +56,13 @@ public class Course_management extends javax.swing.JFrame {
             }
         });
 
-        update_btn.setBackground(new java.awt.Color(242, 242, 242));
-        update_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        update_btn.setForeground(new java.awt.Color(153, 153, 255));
-        update_btn.setText("update");
-        update_btn.addActionListener(new java.awt.event.ActionListener() {
+        Addstudent_btn.setBackground(new java.awt.Color(242, 242, 242));
+        Addstudent_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Addstudent_btn.setForeground(new java.awt.Color(153, 153, 255));
+        Addstudent_btn.setText("Add Student");
+        Addstudent_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                update_btnActionPerformed(evt);
+                Addstudent_btnActionPerformed(evt);
             }
         });
 
@@ -95,10 +96,10 @@ public class Course_management extends javax.swing.JFrame {
             }
         });
 
-        Manage_course_btn.setBackground(new java.awt.Color(153, 153, 255));
+        Manage_course_btn.setBackground(new java.awt.Color(242, 242, 242));
         Manage_course_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Manage_course_btn.setForeground(new java.awt.Color(242, 242, 242));
-        Manage_course_btn.setText("Course");
+        Manage_course_btn.setForeground(new java.awt.Color(153, 153, 255));
+        Manage_course_btn.setText("Manage courses");
         Manage_course_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Manage_course_btnActionPerformed(evt);
@@ -114,64 +115,77 @@ public class Course_management extends javax.swing.JFrame {
             }
         });
 
+        update_btn1.setBackground(new java.awt.Color(242, 242, 242));
+        update_btn1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        update_btn1.setForeground(new java.awt.Color(153, 153, 255));
+        update_btn1.setText("update");
+        update_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_btn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(student_information_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(delete_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(search_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(attendant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Manage_course_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(update_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25))
+                    .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(45, 45, 45)
                 .addComponent(student_information_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(update_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(60, 60, 60)
+                .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
                 .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(63, 63, 63)
                 .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(57, 57, 57)
                 .addComponent(attendant, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(56, 56, 56)
                 .addComponent(Manage_course_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1100, 85));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1100, 911));
 
         jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Course ");
+        jlabel_head.setText("Student Information");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(574, Short.MAX_VALUE)
+                .addContainerGap(378, Short.MAX_VALUE)
                 .addComponent(jlabel_head)
-                .addGap(401, 401, 401))
+                .addGap(376, 376, 376))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(jlabel_head)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1011, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,29 +194,33 @@ public class Course_management extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void student_information_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_information_btnActionPerformed
-        Student_information nav_student_information=new Student_information();
-        nav_student_information.show();
+        Course_management nav_Student_information=new Course_management();
+        nav_Student_information.show();
         dispose();
     }//GEN-LAST:event_student_information_btnActionPerformed
 
-    private void update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btnActionPerformed
-        Update nav_update=new Update();
-        nav_update.show();
+    private void Addstudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Addstudent_btnActionPerformed
+        Addstudent nav_Addstudent=new Addstudent();
+        nav_Addstudent.show();
         dispose();
-    }//GEN-LAST:event_update_btnActionPerformed
+    }//GEN-LAST:event_Addstudent_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
        Delete nev_delete=new Delete();
@@ -233,6 +251,12 @@ public class Course_management extends javax.swing.JFrame {
         nav_main_dashboard.show();
         dispose();
     }//GEN-LAST:event_home_btnActionPerformed
+
+    private void update_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btn1ActionPerformed
+        Update nav_update=new Update();
+        nav_update.show();
+        dispose();
+    }//GEN-LAST:event_update_btn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +301,7 @@ public class Course_management extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JButton Addstudent_btn;
     javax.swing.JButton Manage_course_btn;
     javax.swing.JButton attendant;
     javax.swing.JButton delete_btn;
@@ -286,6 +311,6 @@ public class Course_management extends javax.swing.JFrame {
     javax.swing.JLabel jlabel_head;
     javax.swing.JButton search_btn;
     javax.swing.JButton student_information_btn;
-    javax.swing.JButton update_btn;
+    javax.swing.JButton update_btn1;
     // End of variables declaration//GEN-END:variables
 }
