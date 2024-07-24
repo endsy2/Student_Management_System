@@ -3,20 +3,85 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package student_management_system;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JOptionPane;
+
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author MSI
  */
 public class Student_information extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Main_navigation
-     */
+    public static Statement state;
+    public static Connection con;
+    public static ResultSet rs;
+   
+    
     public Student_information() {
+         
+    
         initComponents();
+        connect();
+        TB();
     }
-
+    public void connect(){
+        try {
+            String url ="jdbc:mysql://localhost:3306/studentmanagementsystem";
+            String user="root";
+            String pass="kongming16";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection(url,user,pass);
+            
+            state=con.createStatement();
+            
+        }
+        catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    public void TB(){
+        try{
+        DefaultTableModel tb=new DefaultTableModel();
+        tb.addColumn("Information ID");
+        tb.addColumn("Student Id");
+//        tb.addColumn("Student name");
+        tb.addColumn("Gender");
+        tb.addColumn("Email");
+        tb.addColumn("Address");
+        tb.addColumn("Year");
+        tb.addColumn("Grade");
+        tb.addColumn("Content");
+        
+        
+        jTable2.setModel(tb);
+        rs=state.executeQuery("select * from student_information");
+        
+        while (rs.next()){
+            tb.addRow(new Object[]{
+                rs.getInt("Student_information_ID"),
+                rs.getInt("Student_ID"),
+                rs.getInt("Gender_ID"),
+                rs.getString("Email"),
+                rs.getInt("Address"),
+                rs.getInt("Year"),
+                rs.getInt("Grade"),
+                rs.getInt("ContactNumber"),
+                
+                
+            });
+        }
+        }
+        catch(SQLException e ){
+            JOptionPane.showMessageDialog(null,"error"+e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +102,8 @@ public class Student_information extends javax.swing.JFrame {
         update_btn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -161,7 +228,7 @@ public class Student_information extends javax.swing.JFrame {
                 .addComponent(attendant, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(Manage_course_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,21 +238,41 @@ public class Student_information extends javax.swing.JFrame {
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
         jlabel_head.setText("Student Information");
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
-                .addComponent(jlabel_head)
-                .addGap(376, 376, 376))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(jlabel_head))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(jlabel_head)
-                .addContainerGap(1011, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,17 +281,14 @@ public class Student_information extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
         );
 
         pack();
@@ -304,9 +388,15 @@ public class Student_information extends javax.swing.JFrame {
     javax.swing.JButton home_btn;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     javax.swing.JLabel jlabel_head;
     javax.swing.JButton search_btn;
     javax.swing.JButton student_information_btn;
     javax.swing.JButton update_btn1;
     // End of variables declaration//GEN-END:variables
+
+    private Connection DriverManager(String jdbcmysqllocalhost3306studentmanagementsy) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
