@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author MSI
  */
-public class Student_information extends javax.swing.JFrame {
+public final class Student_information extends javax.swing.JFrame {
     public static Statement state;
     public static Connection con;
     public static ResultSet rs;
@@ -51,7 +51,8 @@ public class Student_information extends javax.swing.JFrame {
         DefaultTableModel tb=new DefaultTableModel();
         tb.addColumn("Information ID");
         tb.addColumn("Student Id");
-//        tb.addColumn("Student name");
+        tb.addColumn("first_name");
+        tb.addColumn("Last name");
         tb.addColumn("Gender");
         tb.addColumn("Email");
         tb.addColumn("Address");
@@ -61,17 +62,29 @@ public class Student_information extends javax.swing.JFrame {
         
         
         jTable2.setModel(tb);
-        rs=state.executeQuery("select * from student_information");
+        rs=state.executeQuery("""
+                              SELECT * 
+                              FROM student_information INNER JOIN student 
+                              ON student_information.Student_ID =student.Student_ID
+                              INNER JOIN gender 
+                              ON student_information.Gender_ID=gender.GenderID
+                              INNER JOIN address
+                              ON student_information.addressID=address.addressId
+                              INNER JOIN grade
+                              ON student_information.GradeID=grade.GradeID;
+                              ;""");
         
         while (rs.next()){
             tb.addRow(new Object[]{
                 rs.getInt("Student_information_ID"),
                 rs.getInt("Student_ID"),
-                rs.getInt("Gender_ID"),
+                rs.getString("FirstName"),
+                rs.getString("LastName"),
+                rs.getString("Gender"),
                 rs.getString("Email"),
-                rs.getInt("Address"),
+                rs.getString("address"),
                 rs.getInt("Year"),
-                rs.getInt("Grade"),
+                rs.getString("Grade"),
                 rs.getInt("ContactNumber"),
                 
                 
@@ -238,6 +251,7 @@ public class Student_information extends javax.swing.JFrame {
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
         jlabel_head.setText("Student Information");
 
+        jTable2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -249,6 +263,7 @@ public class Student_information extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setShowGrid(true);
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -258,19 +273,19 @@ public class Student_information extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(jlabel_head))
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addGap(317, 317, 317)
+                        .addComponent(jlabel_head)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addComponent(jlabel_head)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -373,10 +388,8 @@ public class Student_information extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Student_information().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Student_information().setVisible(true);
         });
     }
 
