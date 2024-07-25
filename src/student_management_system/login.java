@@ -57,6 +57,7 @@ public class login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 255));
         jLabel4.setText("USERNAME");
 
+        username.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         username.setForeground(new java.awt.Color(51, 51, 51));
         username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         username.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -70,6 +71,7 @@ public class login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(153, 153, 255));
         jLabel5.setText("PASSWORD");
 
+        password.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
