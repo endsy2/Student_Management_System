@@ -4,7 +4,6 @@
  */
 package student_management_system;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,8 +17,6 @@ import javax.swing.table.DefaultTableModel;
  * @author MSI
  */
 public final class Student_information extends javax.swing.JFrame {
-    public static Statement state;
-    public static Connection con;
     public static ResultSet rs;
    
     
@@ -27,27 +24,12 @@ public final class Student_information extends javax.swing.JFrame {
          
     
         initComponents();
-        connect();
         TB();
     }
-    public void connect(){
-        try {
-            String url ="jdbc:mysql://localhost:3306/studentmanagementsystem";
-            String user="root";
-            String pass="kongming16";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection(url,user,pass);
-            
-            state=con.createStatement();
-            
-        }
-        catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
-        }
-        
-    }
+    
     public void TB(){
-        try{
+        try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
+            
         DefaultTableModel tb=new DefaultTableModel();
         tb.addColumn("Information ID");
         tb.addColumn("Student Id");
@@ -271,21 +253,20 @@ public final class Student_information extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addComponent(jlabel_head)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(316, 316, 316)
+                .addComponent(jlabel_head)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(52, 52, 52)
                 .addComponent(jlabel_head)
-                .addGap(31, 31, 31)
+                .addGap(78, 78, 78)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -296,8 +277,8 @@ public final class Student_information extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

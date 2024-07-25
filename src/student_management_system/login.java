@@ -220,35 +220,36 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
-        String URL="jdbc:mysql://localhost:3306/login";
-        String admin="root";
-        String Password="kongming16";
+        
         String usernametxt=username.getText();
         String passwordtxt=password.getText();
         int i =0;
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        try (Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             
-            Connection connection=DriverManager.getConnection(URL,admin,Password);
             
-            Statement statement=connection.createStatement();
             
-            ResultSet resultSet=statement.executeQuery("select * from login_infor");
+            
+            ResultSet resultSet=state.executeQuery("select * from login");
+            
+           
             
             while (resultSet.next()){
-                if (usernametxt.equals(resultSet.getString("user_name")) && passwordtxt.equals(resultSet.getString("password"))) {
+                if (usernametxt.equals(resultSet.getString("username")) && passwordtxt.equals(resultSet.getString("password"))) {
                     Main_dashboard nav_main = new Main_dashboard();
                     nav_main.show();
                     dispose();
                     i++;
+                    
                     break;
                 }
                 else if (usernametxt.equals("")){
                     JOptionPane.showMessageDialog(null,"Please enter username");
+                    i++;
                     break;
                 }
                 else if (passwordtxt.equals("")){
                     JOptionPane.showMessageDialog(null,"Please enter password");
+                    i++;
                     break;
                 }        
         }
@@ -258,7 +259,7 @@ public class login extends javax.swing.JFrame {
                     
                 
         }
-        catch(HeadlessException | ClassNotFoundException | SQLException e ){
+        catch(HeadlessException | SQLException e ){
         }
   
         
