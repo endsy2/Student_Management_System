@@ -46,9 +46,8 @@ public class Course_management extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 573));
 
-        student_information_btn.setBackground(new java.awt.Color(153, 153, 255));
         student_information_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        student_information_btn.setForeground(new java.awt.Color(255, 255, 255));
+        student_information_btn.setForeground(new java.awt.Color(153, 153, 255));
         student_information_btn.setText("Student Information");
         student_information_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,9 +95,9 @@ public class Course_management extends javax.swing.JFrame {
             }
         });
 
-        Manage_course_btn.setBackground(new java.awt.Color(242, 242, 242));
+        Manage_course_btn.setBackground(new java.awt.Color(153, 153, 255));
         Manage_course_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Manage_course_btn.setForeground(new java.awt.Color(153, 153, 255));
+        Manage_course_btn.setForeground(new java.awt.Color(255, 255, 255));
         Manage_course_btn.setText("Manage courses");
         Manage_course_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,14 +168,14 @@ public class Course_management extends javax.swing.JFrame {
 
         jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Student Information");
+        jlabel_head.setText("Course management");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
+                .addContainerGap(377, Short.MAX_VALUE)
                 .addComponent(jlabel_head)
                 .addGap(376, 376, 376))
         );
@@ -203,8 +202,7 @@ public class Course_management extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

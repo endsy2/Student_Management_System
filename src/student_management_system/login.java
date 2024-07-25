@@ -225,6 +225,7 @@ public class login extends javax.swing.JFrame {
         String Password="kongming16";
         String usernametxt=username.getText();
         String passwordtxt=password.getText();
+        int i =0;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             
@@ -239,6 +240,7 @@ public class login extends javax.swing.JFrame {
                     Main_dashboard nav_main = new Main_dashboard();
                     nav_main.show();
                     dispose();
+                    i++;
                     break;
                 }
                 else if (usernametxt.equals("")){
@@ -248,18 +250,12 @@ public class login extends javax.swing.JFrame {
                 else if (passwordtxt.equals("")){
                     JOptionPane.showMessageDialog(null,"Please enter password");
                     break;
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null,"Wrong username or password","Message",JOptionPane.ERROR_MESSAGE);
-                    break;
-                }
-                
-                
+                }        
         }
-            
+                if(i==0){
+                    JOptionPane.showMessageDialog(null,"Wrong username or password","Message",JOptionPane.ERROR_MESSAGE);
+                }
                     
-//                    JOptionPane.showMessageDialog(null,"Wrong username or password","Message",JOptionPane.ERROR_MESSAGE);
                 
         }
         catch(HeadlessException | ClassNotFoundException | SQLException e ){
