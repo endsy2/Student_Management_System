@@ -43,7 +43,6 @@ public class Search extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchbtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -64,10 +63,10 @@ public class Search extends javax.swing.JFrame {
         yeartxt = new javax.swing.JTextField();
         gradetxt = new javax.swing.JTextField();
         contacttxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1370, 1080));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -200,12 +199,8 @@ public class Search extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel1.setText("ID");
-        jLabel1.setToolTipText("");
-
         searchField.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        searchField.setForeground(new java.awt.Color(153, 153, 255));
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchFieldActionPerformed(evt);
@@ -228,20 +223,15 @@ public class Search extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(65, 65, 65)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                     .addComponent(searchField))
@@ -251,40 +241,40 @@ public class Search extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(765, 600));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel2.setText("ID");
+        jLabel2.setText("ID:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel4.setText("First Name");
+        jLabel4.setText("First Name:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel5.setText("Last Name");
+        jLabel5.setText("Last Name:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel6.setText("Gender");
+        jLabel6.setText("Gender:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel7.setText("Address");
+        jLabel7.setText("Address:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel8.setText("Year");
+        jLabel8.setText("Year:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel9.setText("Grade");
+        jLabel9.setText("Grade:");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel10.setText("Contact");
+        jLabel10.setText("Contact:");
 
         idtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         idtxt.setForeground(new java.awt.Color(153, 153, 255));
@@ -355,7 +345,7 @@ public class Search extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -377,8 +367,7 @@ public class Search extends javax.swing.JFrame {
                             .addComponent(addresstxt)
                             .addComponent(yeartxt)
                             .addComponent(gradetxt)
-                            .addComponent(contacttxt))))
-                .addContainerGap(225, Short.MAX_VALUE))
+                            .addComponent(contacttxt)))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,31 +412,44 @@ public class Search extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel1.setText("ID");
+        jLabel1.setToolTipText("");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jlabel_head)
-                .addGap(376, 376, 376))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(390, 390, 390)
+                .addComponent(jlabel_head)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(163, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(253, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(134, 134, 134))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jlabel_head)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(46, 46, 46)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -483,7 +485,7 @@ public class Search extends javax.swing.JFrame {
     }//GEN-LAST:event_Addstudent_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
-       Search nev_delete=new Search();
+       Delete nev_delete=new Delete();
         nev_delete.show();
         dispose();
     }//GEN-LAST:event_delete_btnActionPerformed
@@ -528,19 +530,21 @@ public class Search extends javax.swing.JFrame {
         int id =Integer.parseInt(search);
         try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             ResultSet rs=state.executeQuery("""
-                                            SELECT * 
-                                            FROM student_information INNER JOIN student 
-                                            ON student_information.Student_ID =student.Student_ID
-                                            INNER JOIN gender 
-                                            ON student_information.Gender_ID=gender.GenderID
-                                            INNER JOIN address
-                                            ON student_information.addressID=address.addressId
-                                            INNER JOIN grade
-                                            ON student_information.GradeID=grade.GradeID;""");
+                                            SELECT * 					,CONCAT(FirstName," ",LastName) AS fullname
+                                                                                        FROM student_information INNER JOIN student 
+                                                                                        ON student_information.Student_ID =student.Student_ID
+                                                                                        INNER JOIN gender 
+                                                                                        ON student_information.Gender_ID=gender.GenderID
+                                                                                        INNER JOIN address
+                                                                                        ON student_information.addressID=address.addressId
+                                                                                        INNER JOIN grade
+                                                                                        ON student_information.GradeID=grade.GradeID;""");
+            
+            
             while(rs.next()){
-                if((rs.getInt("Student_ID"))==id){
+                if((rs.getInt("Student_ID"))==id ){
                     idtxt.setText(Integer.toString(rs.getInt("Student_ID")));
-                    firstnametxt.setText(rs.getString("FirstName"));
+                    firstnametxt.setText(rs.getString("firstName"));
                     lastnametxt.setText(rs.getString("LastName"));
                     gendertxt.setText(rs.getString("Gender"));
                     addresstxt.setText(rs.getString("address"));
@@ -549,9 +553,11 @@ public class Search extends javax.swing.JFrame {
                     contacttxt.setText(rs.getString("ContactNumber"));
                     i++;
                 }
+                
             }
             if(i==0){
                 JOptionPane.showMessageDialog(null,"NO THIS ID");
+                
             }
         }
         catch(Exception e){
