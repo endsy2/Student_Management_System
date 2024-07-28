@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package student_management_system;
+import student_management_system.Class.Connect;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +13,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -28,12 +31,15 @@ public final class Student_information extends javax.swing.JFrame {
     }
     
     public void TB(){
+        
         try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             
         DefaultTableModel tb=new DefaultTableModel();
-        tb.addColumn("Information ID");
+        JTableHeader header=jTable2.getTableHeader();
+        header.setFont(new Font("Verdana", Font.BOLD, 14));
+        tb.addColumn("No");
         tb.addColumn("Student Id");
-        tb.addColumn("first_name");
+        tb.addColumn("First name");
         tb.addColumn("Last name");
         tb.addColumn("Gender");
         tb.addColumn("Email");
@@ -236,17 +242,18 @@ public final class Student_information extends javax.swing.JFrame {
         jTable2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
             }
         ));
         jTable2.setRowHeight(35);
         jTable2.setShowGrid(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
         jTable2.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(jTable2);
 
@@ -257,10 +264,10 @@ public final class Student_information extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(316, 316, 316)
                 .addComponent(jlabel_head)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
