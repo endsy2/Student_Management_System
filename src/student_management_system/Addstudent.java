@@ -6,11 +6,13 @@ package student_management_system;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.PreparedStatement ;
 import java.sql.Statement;
-import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import student_management_system.Class.Connect;
 import static student_management_system.Student_information.rs;
 
@@ -18,7 +20,7 @@ import static student_management_system.Student_information.rs;
  *
  * @author MSI
  */
-public class Addstudent extends javax.swing.JFrame {
+public final class Addstudent extends javax.swing.JFrame {
 
     /**
      * Creates new form Main_navigation
@@ -29,37 +31,47 @@ public class Addstudent extends javax.swing.JFrame {
         
     }
     
-    public void update (){
-        
-        int id =Integer.parseInt(idtxt.getText());
+    public void insert (){
+        idtxt.setText("0");
+        String txtid = idtxt.getText();
+        contacttxt.setText("0");
+        String txtcontact = contacttxt.getText();
+        yeartxt.setText("0");
+        String txtyear=yeartxt.getText();
+        int id =Integer.parseInt(txtid);
+        int contact = Integer.parseInt(txtcontact);
+        int year=Integer.parseInt(txtyear);
         String firstname=firstnametxt.getText();
         String lastname=lastnametxt.getText();
         String gender=gendertxt.getText();
         String email=emailtxt.getText();
         String address=addresstxt.getText();
-        int year=Integer.parseInt(yeartxt.getText());
         String grade=gradetxt.getText();
-        int contact=Integer.parseInt(contacttxt.getText());
+        System.out.println(id);
+
+        String insertQuery = "INSERT INTO student (FirstName, LastName) VALUES (?, ?)";
+         try (Connection con = Connect.getConnection(); 
+         PreparedStatement pstmt = con.prepareStatement(insertQuery)) {
         
+        // Set parameters for the prepared statement
+        pstmt.setString(1, firstname);
+        pstmt.setString(2, lastname);
         
-        try{
-            Connection con=Connect.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement("""
-                                                                       INSERT INTO student(FirstName,LastName)
-                                                                       VALUES (?,?);
-                                                                       """);
-                    preparedStatement.setString(1,firstname);
-                    preparedStatement.setString(2,lastname);
-            rs = preparedStatement.executeQuery();
+        // Execute the insert operation
+//        int rowsAffected = pstmt.executeUpdate();
+         System.out.println(firstname); 
+        
+    }   catch (SQLException ex) {
+            Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(SQLException e ){
-        }
-        
-        
-    }
     
     
-    public void tb(){
+    } 
+    
+    
+    
+    
+public void tb(){
         try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             
             DefaultTableModel tb=new DefaultTableModel();
@@ -510,9 +522,9 @@ public class Addstudent extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(23, 23, 23)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(318, 318, 318)
+                .addGap(344, 344, 344)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -659,16 +671,16 @@ public class Addstudent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        update();
+        insert();
         tb();
-//        idtxt.setText("");
-//        firstnametxt.setText("");
-//        lastnametxt.setText("");
-//        gendertxt.setText("");
-//        addresstxt.setText("");
-//        yeartxt.setText("");
-//        gradetxt.setText("");
-//        contacttxt.setText("");
+        idtxt.setText("");
+        firstnametxt.setText("");
+        lastnametxt.setText("");
+        gendertxt.setText("");
+        addresstxt.setText("");
+        yeartxt.setText("");
+        gradetxt.setText("");
+        contacttxt.setText("");
 //        
     }//GEN-LAST:event_jButton1ActionPerformed
 

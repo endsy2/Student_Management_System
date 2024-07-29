@@ -720,14 +720,14 @@ public class Search extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton Addstudent_btn;
     javax.swing.JButton Manage_course_btn;
-    private javax.swing.JTextField addresstxt;
+    public javax.swing.JTextField addresstxt;
     javax.swing.JButton attendant;
-    private javax.swing.JTextField contacttxt;
+    public javax.swing.JTextField contacttxt;
     javax.swing.JButton delete_btn;
-    private javax.swing.JTextField emailtxt;
-    private javax.swing.JTextField firstnametxt;
-    private javax.swing.JTextField gendertxt;
-    private javax.swing.JTextField gradetxt;
+    public javax.swing.JTextField emailtxt;
+    public javax.swing.JTextField firstnametxt;
+    public javax.swing.JTextField gendertxt;
+    public javax.swing.JTextField gradetxt;
     javax.swing.JButton home_btn;
     public javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
@@ -746,13 +746,13 @@ public class Search extends javax.swing.JFrame {
     javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField lastnametxt;
+    public javax.swing.JTextField lastnametxt;
     private javax.swing.JLabel message;
     private javax.swing.JTextField searchField;
     javax.swing.JButton search_btn;
     private javax.swing.JButton searchbtn;
     javax.swing.JButton student_information_btn;
     javax.swing.JButton update_btn1;
-    private javax.swing.JTextField yeartxt;
+    public javax.swing.JTextField yeartxt;
     // End of variables declaration//GEN-END:variables
 }
