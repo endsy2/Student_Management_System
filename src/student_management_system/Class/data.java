@@ -4,13 +4,10 @@
  */
 package student_management_system.Class;
 
-import student_management_system.login;
-
 /**
  *
  * @author MSI
  */
-public class MAIN {
-    login log=new login();
+public class data {
     
 }

@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.*;  
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
@@ -37,7 +38,6 @@ public final class Student_information extends javax.swing.JFrame {
         DefaultTableModel tb=new DefaultTableModel();
         JTableHeader header=jTable2.getTableHeader();
         header.setFont(new Font("Verdana", Font.BOLD, 14));
-        tb.addColumn("No");
         tb.addColumn("Student Id");
         tb.addColumn("First name");
         tb.addColumn("Last name");
@@ -64,7 +64,6 @@ public final class Student_information extends javax.swing.JFrame {
         
         while (rs.next()){
             tb.addRow(new Object[]{
-                rs.getInt("Student_information_ID"),
                 rs.getInt("Student_ID"),
                 rs.getString("FirstName"),
                 rs.getString("LastName"),
@@ -83,6 +82,8 @@ public final class Student_information extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"error"+e.getMessage());
         }
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
