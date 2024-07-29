@@ -7,15 +7,16 @@ package student_management_system;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author MSI
  */
 public class Connect {
-    public static final String url="jdbc:mysql://localhost:3306/studentmanagementsystem";
+    public static final String url="jdbc:mysql://127.0.0.1:3306/studentmanagementsystem";
     public static final String user="root";
-    public static final String password="kongming16";
+    public static final String password="062005hak";
     public static Connection getConnection(){
         Connection connection=null;
         try {
@@ -25,6 +26,7 @@ public class Connect {
         }
         catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
+            
         }
         return connection;
     }
