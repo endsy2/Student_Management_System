@@ -152,7 +152,7 @@ public class Main_dashboard extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(153, 153, 255));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Exist");
+        jButton8.setText("LOGIN");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package student_management_system;
+import student_management_system.Class.Connect;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -37,6 +38,8 @@ public class login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         loginbtn = new javax.swing.JButton();
+        message_error = new javax.swing.JLabel();
+        closebtn = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -95,18 +98,37 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        message_error.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        message_error.setForeground(new java.awt.Color(153, 153, 255));
+
+        closebtn.setBackground(new java.awt.Color(153, 153, 255));
+        closebtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        closebtn.setForeground(new java.awt.Color(255, 255, 255));
+        closebtn.setText("Exit");
+        closebtn.setPreferredSize(new java.awt.Dimension(74, 32));
+        closebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closebtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(loginbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                    .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(username))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(message_error)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel4)
+                        .addComponent(username)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -119,8 +141,12 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(message_error)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 215, Short.MAX_VALUE))
         );
 
@@ -238,25 +264,25 @@ public class login extends javax.swing.JFrame {
             while (resultSet.next()){
                 if (usernametxt.equals(resultSet.getString("username")) && passwordtxt.equals(resultSet.getString("password"))) {
                     Main_dashboard nav_main = new Main_dashboard();
-                    nav_main.show();
+                    nav_main.show();      
                     dispose();
                     i++;
                     
                     break;
                 }
                 else if (usernametxt.equals("")){
-                    JOptionPane.showMessageDialog(null,"Please enter username");
+                    message_error.setText("Please Enter Username");
                     i++;
                     break;
                 }
                 else if (passwordtxt.equals("")){
-                    JOptionPane.showMessageDialog(null,"Please enter password");
+                    message_error.setText("Please Enter Password");
                     i++;
                     break;
                 }        
         }
                 if(i==0){
-                    JOptionPane.showMessageDialog(null,"Wrong username or password","Message",JOptionPane.ERROR_MESSAGE);
+                    message_error.setText("Wrong Username Or Password");
                 }
                     
                 
@@ -281,6 +307,10 @@ public class login extends javax.swing.JFrame {
     private void loginbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseClicked
 
     }//GEN-LAST:event_loginbtnMouseClicked
+
+    private void closebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closebtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_closebtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +348,7 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -329,6 +360,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JButton loginbtn;
+    private javax.swing.JLabel message_error;
     public javax.swing.JPasswordField password;
     public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

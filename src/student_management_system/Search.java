@@ -4,6 +4,7 @@
  */
 package student_management_system;
 
+import student_management_system.Class.Connect;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.*;
@@ -41,11 +42,11 @@ public class Search extends javax.swing.JFrame {
         home_btn = new javax.swing.JButton();
         update_btn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jlabel_head = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchbtn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -64,10 +65,12 @@ public class Search extends javax.swing.JFrame {
         yeartxt = new javax.swing.JTextField();
         gradetxt = new javax.swing.JTextField();
         contacttxt = new javax.swing.JTextField();
+        message = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        emailtxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1370, 1080));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -194,18 +197,16 @@ public class Search extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1100, 911));
 
-        jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Search Information");
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel1.setText("ID");
+        jLabel1.setText("ID:");
         jLabel1.setToolTipText("");
 
-        searchField.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        searchField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchField.setForeground(new java.awt.Color(153, 153, 255));
+        searchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchFieldActionPerformed(evt);
@@ -222,131 +223,157 @@ public class Search extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(searchField))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
+        );
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel11.setText("Search Information");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(765, 600));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel2.setText("ID");
+        jLabel2.setText("ID:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel4.setText("First Name");
+        jLabel4.setText("First Name:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel5.setText("Last Name");
+        jLabel5.setText("Last Name:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel6.setText("Gender");
+        jLabel6.setText("Email:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel7.setText("Address");
+        jLabel7.setText("Address:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel8.setText("Year");
+        jLabel8.setText("Year:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel9.setText("Grade");
+        jLabel9.setText("Grade:");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel10.setText("Contact");
+        jLabel10.setText("Contact:");
 
-        idtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idtxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         idtxt.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         idtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idtxtActionPerformed(evt);
             }
         });
 
-        firstnametxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        firstnametxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         firstnametxt.setForeground(new java.awt.Color(153, 153, 255));
+        firstnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         firstnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnametxtActionPerformed(evt);
             }
         });
 
-        lastnametxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lastnametxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lastnametxt.setForeground(new java.awt.Color(153, 153, 255));
+        lastnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lastnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnametxtActionPerformed(evt);
             }
         });
 
-        gendertxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        gendertxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         gendertxt.setForeground(new java.awt.Color(153, 153, 255));
+        gendertxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gendertxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gendertxtActionPerformed(evt);
             }
         });
 
-        addresstxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addresstxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         addresstxt.setForeground(new java.awt.Color(153, 153, 255));
+        addresstxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addresstxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addresstxtActionPerformed(evt);
             }
         });
 
-        yeartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        yeartxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         yeartxt.setForeground(new java.awt.Color(153, 153, 255));
+        yeartxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         yeartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yeartxtActionPerformed(evt);
             }
         });
 
-        gradetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        gradetxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         gradetxt.setForeground(new java.awt.Color(153, 153, 255));
+        gradetxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gradetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradetxtActionPerformed(evt);
             }
         });
 
-        contacttxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contacttxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         contacttxt.setForeground(new java.awt.Color(153, 153, 255));
+        contacttxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         contacttxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contacttxtActionPerformed(evt);
+            }
+        });
+
+        message.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        message.setForeground(new java.awt.Color(153, 153, 255));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel12.setText("Gender:");
+
+        emailtxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        emailtxt.setForeground(new java.awt.Color(153, 153, 255));
+        emailtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        emailtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailtxtActionPerformed(evt);
             }
         });
 
@@ -354,71 +381,90 @@ public class Search extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(567, 567, 567))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(message)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(idtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                            .addComponent(firstnametxt)
+                            .addComponent(jLabel12))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(firstnametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idtxt, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lastnametxt)
-                            .addComponent(gendertxt)
-                            .addComponent(addresstxt)
-                            .addComponent(yeartxt)
-                            .addComponent(gradetxt)
-                            .addComponent(contacttxt))))
-                .addContainerGap(225, Short.MAX_VALUE))
+                            .addComponent(gendertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(82, 82, 82)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(addresstxt)
+                    .addComponent(contacttxt)
+                    .addComponent(gradetxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(yeartxt)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2)
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(firstnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lastnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(firstnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lastnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel9)))
+                            .addComponent(jLabel2))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(gendertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(yeartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(gradetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(57, 57, 57)
+                            .addComponent(jLabel12)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(yeartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(addresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addGap(153, 153, 153)
+                                .addComponent(gradetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(contacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
-                .addGap(221, 221, 221)
+                .addGap(59, 59, 59)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(message)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(383, 383, 383)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -427,27 +473,29 @@ public class Search extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jlabel_head)
-                .addGap(376, 376, 376))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(253, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jlabel_head)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(jLabel11)
+                .addGap(71, 71, 71)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -456,13 +504,14 @@ public class Search extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1106, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -483,7 +532,7 @@ public class Search extends javax.swing.JFrame {
     }//GEN-LAST:event_Addstudent_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
-       Search nev_delete=new Search();
+       Delete nev_delete=new Delete();
         nev_delete.show();
         dispose();
     }//GEN-LAST:event_delete_btnActionPerformed
@@ -528,35 +577,42 @@ public class Search extends javax.swing.JFrame {
         int id =Integer.parseInt(search);
         try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             ResultSet rs=state.executeQuery("""
-                                            SELECT * 
-                                            FROM student_information INNER JOIN student 
-                                            ON student_information.Student_ID =student.Student_ID
-                                            INNER JOIN gender 
-                                            ON student_information.Gender_ID=gender.GenderID
-                                            INNER JOIN address
-                                            ON student_information.addressID=address.addressId
-                                            INNER JOIN grade
-                                            ON student_information.GradeID=grade.GradeID;""");
+                                            SELECT * 					,CONCAT(FirstName," ",LastName) AS fullname
+                                                                                        FROM student_information INNER JOIN student 
+                                                                                        ON student_information.Student_ID =student.Student_ID
+                                                                                        INNER JOIN gender 
+                                                                                        ON student_information.Gender_ID=gender.GenderID
+                                                                                        INNER JOIN address
+                                                                                        ON student_information.addressID=address.addressId
+                                                                                        INNER JOIN grade
+                                                                                        ON student_information.GradeID=grade.GradeID;""");
+            
+            
             while(rs.next()){
                 if((rs.getInt("Student_ID"))==id){
                     idtxt.setText(Integer.toString(rs.getInt("Student_ID")));
-                    firstnametxt.setText(rs.getString("FirstName"));
+                    firstnametxt.setText(rs.getString("firstName"));
                     lastnametxt.setText(rs.getString("LastName"));
                     gendertxt.setText(rs.getString("Gender"));
                     addresstxt.setText(rs.getString("address"));
                     yeartxt.setText(Integer.toString(rs.getInt("Year")));
                     gradetxt.setText(rs.getString("Grade"));
                     contacttxt.setText(rs.getString("ContactNumber"));
+                    emailtxt.setText(rs.getString("Email"));
+                    message.setText(" ");
                     i++;
                 }
+                
             }
             if(i==0){
-                JOptionPane.showMessageDialog(null,"NO THIS ID");
+                message.setText("NO THIS ID");
+                
             }
         }
         catch(Exception e){
             
         }
+        searchField.setText("");
     }//GEN-LAST:event_searchbtnActionPerformed
 
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
@@ -590,6 +646,10 @@ public class Search extends javax.swing.JFrame {
     private void contacttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contacttxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contacttxtActionPerformed
+
+    private void emailtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailtxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -660,17 +720,20 @@ public class Search extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton Addstudent_btn;
     javax.swing.JButton Manage_course_btn;
-    private javax.swing.JTextField addresstxt;
+    public javax.swing.JTextField addresstxt;
     javax.swing.JButton attendant;
-    private javax.swing.JTextField contacttxt;
+    public javax.swing.JTextField contacttxt;
     javax.swing.JButton delete_btn;
-    private javax.swing.JTextField firstnametxt;
-    private javax.swing.JTextField gendertxt;
-    private javax.swing.JTextField gradetxt;
+    public javax.swing.JTextField emailtxt;
+    public javax.swing.JTextField firstnametxt;
+    public javax.swing.JTextField gendertxt;
+    public javax.swing.JTextField gradetxt;
     javax.swing.JButton home_btn;
     public javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -681,15 +744,15 @@ public class Search extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    javax.swing.JLabel jlabel_head;
-    private javax.swing.JTextField lastnametxt;
+    private javax.swing.JPanel jPanel5;
+    public javax.swing.JTextField lastnametxt;
+    private javax.swing.JLabel message;
     private javax.swing.JTextField searchField;
     javax.swing.JButton search_btn;
     private javax.swing.JButton searchbtn;
     javax.swing.JButton student_information_btn;
     javax.swing.JButton update_btn1;
-    private javax.swing.JTextField yeartxt;
+    public javax.swing.JTextField yeartxt;
     // End of variables declaration//GEN-END:variables
 }
