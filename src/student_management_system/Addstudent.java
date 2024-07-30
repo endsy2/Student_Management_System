@@ -49,26 +49,28 @@ public final class Addstudent extends javax.swing.JFrame {
         String grade=gradetxt.getText();
         System.out.println(id);
 
-        String insertQuery = "INSERT INTO student (FirstName, LastName) VALUES (?, ?)";
+//        String insertQuery = """
+//                             CREATE DEFINER=`root`@`localhost` TRIGGER `student_AFTER_INSERT` AFTER INSERT ON `student` FOR EACH ROW BEGIN
+//                             \tINSERT INTO student_information(Stude    nt_ID,Gender_ID,Email,AddressID,Year,Grade,ContactNumber)
+//                                 VALUES(?,?,?,?,?,?,?,?);
+//                             END""";
          try (Connection con = Connect.getConnection(); 
-         PreparedStatement pstmt = con.prepareStatement(insertQuery)) {
+         PreparedStatement pstmt = con.prepareStatement(insertQuery))
+         {
         
         // Set parameters for the prepared statement
         pstmt.setString(1, firstname);
         pstmt.setString(2, lastname);
         
         // Execute the insert operation
-//        int rowsAffected = pstmt.executeUpdate();
+        int rowsAffected = pstmt.executeUpdate();
          System.out.println(firstname); 
         
     }   catch (SQLException ex) {
             Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-    
     } 
-    
-    
     
     
 public void tb(){
