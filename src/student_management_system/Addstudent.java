@@ -32,13 +32,10 @@ public final class Addstudent extends javax.swing.JFrame {
     }
     
     public void insert (){
-        idtxt.setText("0");
-        String txtid = idtxt.getText();
         contacttxt.setText("0");
         String txtcontact = contacttxt.getText();
         yeartxt.setText("0");
         String txtyear=yeartxt.getText();
-        int id =Integer.parseInt(txtid);
         int contact = Integer.parseInt(txtcontact);
         int year=Integer.parseInt(txtyear);
         String firstname=firstnametxt.getText();
@@ -47,13 +44,12 @@ public final class Addstudent extends javax.swing.JFrame {
         String email=emailtxt.getText();
         String address=addresstxt.getText();
         String grade=gradetxt.getText();
-        System.out.println(id);
+        
 
-//        String insertQuery = """
-//                             CREATE DEFINER=`root`@`localhost` TRIGGER `student_AFTER_INSERT` AFTER INSERT ON `student` FOR EACH ROW BEGIN
-//                             \tINSERT INTO student_information(Stude    nt_ID,Gender_ID,Email,AddressID,Year,Grade,ContactNumber)
-//                                 VALUES(?,?,?,?,?,?,?,?);
-//                             END""";
+        String insertQuery = """
+                                CALL InsertStudent(?,?,?,?,?,?,?,?);
+
+                             """;
          try (Connection con = Connect.getConnection(); 
          PreparedStatement pstmt = con.prepareStatement(insertQuery))
          {
@@ -61,10 +57,16 @@ public final class Addstudent extends javax.swing.JFrame {
         // Set parameters for the prepared statement
         pstmt.setString(1, firstname);
         pstmt.setString(2, lastname);
+        pstmt.setString(3, gender);
+        pstmt.setString(4, email);
+        pstmt.setString(5, address);
+        pstmt.setInt(6, year);
+        pstmt.setString(7, grade);
+        pstmt.setInt(8, contact);
         
         // Execute the insert operation
         int rowsAffected = pstmt.executeUpdate();
-         System.out.println(firstname); 
+        
         
     }   catch (SQLException ex) {
             Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
