@@ -94,7 +94,7 @@ public class Delete extends javax.swing.JFrame {
         catch(SQLException e ){
             JOptionPane.showMessageDialog(null,"error"+e.getMessage());
         }
-    }
+    
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
