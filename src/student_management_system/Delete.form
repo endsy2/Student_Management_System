@@ -6,6 +6,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1370, 1000]"/>
+    </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[900, 800]"/>
     </Property>
@@ -70,16 +73,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="student_information_btn" alignment="0" max="32767" attributes="0"/>
+                      <Component id="student_information_btn" alignment="0" pref="0" max="32767" attributes="0"/>
                       <Component id="delete_btn" max="32767" attributes="0"/>
                       <Component id="search_btn" max="32767" attributes="0"/>
                       <Component id="attendant" max="32767" attributes="0"/>
                       <Component id="Manage_course_btn" max="32767" attributes="0"/>
-                      <Component id="Addstudent_btn" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                      <Component id="Addstudent_btn" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="home_btn" alignment="0" max="32767" attributes="0"/>
-                      <Component id="update_btn1" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                      <Component id="update_btn1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,21 +90,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="home_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="home_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="student_information_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="student_information_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="Addstudent_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="Addstudent_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="update_btn1" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="update_btn1" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                  <Component id="delete_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="delete_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                  <Component id="search_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="search_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="attendant" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="attendant" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="Manage_course_btn" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="Manage_course_btn" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -304,8 +307,8 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="703" max="-2" attributes="0"/>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="608" max="-2" attributes="0"/>
+                  <EmptySpace pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
