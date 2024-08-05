@@ -40,8 +40,7 @@ public class Delete extends javax.swing.JFrame {
     public void delete(){
         int delete=Integer.parseInt(deletetxt.getText());
         String deleteQuery="""
-                           DELETE FROM student_information 
-                           WHERE Student_ID=?;""";
+                          CALL deleteStudent(?);""";
         try (Connection con = Connect.getConnection(); 
          PreparedStatement pstmt = con.prepareStatement(deleteQuery))
          {
@@ -55,53 +54,47 @@ public class Delete extends javax.swing.JFrame {
     public void tb(){
         try(Connection con=Connect.getConnection(); Statement state = con.createStatement()){
             
-            DefaultTableModel tb=new DefaultTableModel();
-            JTableHeader header=jTable2.getTableHeader();
-            header.setFont(new Font("Verdana", Font.BOLD, 14));
-            tb.addColumn("Student Id");
-            tb.addColumn("First name");
-            tb.addColumn("Last name");
-            tb.addColumn("Gender");
-            tb.addColumn("Email");
-            tb.addColumn("Address");
-            tb.addColumn("Year");
-            tb.addColumn("Grade");
-            tb.addColumn("Content");
-
-
-            jTable2.setModel(tb);
-            rs=state.executeQuery("""
-                                  SELECT * 
-                                  FROM student_information INNER JOIN student 
-                                  ON student_information.Student_ID =student.Student_ID
-                                  INNER JOIN gender 
-                                  ON student_information.Gender_ID=gender.GenderID
-                                  INNER JOIN address
-                                  ON student_information.addressID=address.addressId
-                                  INNER JOIN grade
-                                  ON student_information.GradeID=grade.GradeID;
-                                  ;""");
-
-            while (rs.next()){
-                tb.addRow(new Object[]{
-                    
-                    rs.getInt("Student_ID"),
-                    rs.getString("FirstName"),
-                    rs.getString("LastName"),
-                    rs.getString("Gender"),
-                    rs.getString("Email"),
-                    rs.getString("address"),
-                    rs.getInt("Year"),
-                    rs.getString("Grade"),
-                    rs.getInt("ContactNumber"),
-                    
-
-                });
-            }
-            }
-            catch(SQLException e ){
-                JOptionPane.showMessageDialog(null,"error"+e.getMessage());
-            }
+        DefaultTableModel tb=new DefaultTableModel();
+        JTableHeader header=jTable2.getTableHeader();
+        header.setFont(new Font("Verdana", Font.BOLD, 14));
+        tb.addColumn("Student Id");
+        tb.addColumn("First name");
+        tb.addColumn("Last name");
+        tb.addColumn("Gender");
+        tb.addColumn("Birth Date");
+        tb.addColumn("Email");
+        tb.addColumn("Address");
+        tb.addColumn("Year");
+        tb.addColumn("Grade");
+        tb.addColumn("Content");
+        
+        
+        jTable2.setModel(tb);
+        rs=state.executeQuery("""
+                             CALL display();
+                              ;""");
+        
+        while (rs.next()){
+            tb.addRow(new Object[]{
+                rs.getInt("Student_ID"),
+                rs.getString("FirstName"),
+                rs.getString("LastName"),
+                rs.getString("Gender"),
+                rs.getString("birthDate"),
+                rs.getString("Email"),
+                rs.getString("address"),
+                rs.getInt("Year"),
+                rs.getString("Grade"),
+                rs.getInt("ContactNumber"),
+                
+                
+            });
+        }
+        }
+        catch(SQLException e ){
+            JOptionPane.showMessageDialog(null,"error"+e.getMessage());
+        }
+    }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -127,6 +120,7 @@ public class Delete extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1370, 1000));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -217,35 +211,35 @@ public class Delete extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(student_information_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(student_information_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(delete_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(search_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(attendant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Manage_course_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(student_information_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(student_information_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Addstudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(update_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
-                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(attendant, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(attendant, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(Manage_course_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Manage_course_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -344,8 +338,8 @@ public class Delete extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -370,7 +364,7 @@ public class Delete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void student_information_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_information_btnActionPerformed
-        Delete nav_Student_information=new Delete();
+        Student_information nav_Student_information=new Student_information();
         nav_Student_information.show();
         dispose();
     }//GEN-LAST:event_student_information_btnActionPerformed
