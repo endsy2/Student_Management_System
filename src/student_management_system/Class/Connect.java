@@ -26,11 +26,11 @@ public class Connect {
         }
         catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
-<<<<<<< Updated upstream:src/student_management_system/Class/Connect.java
+
             
-=======
+
             JOptionPane.showMessageDialog(null,e.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
->>>>>>> Stashed changes:src/student_management_system/Connect.java
+
         }
         return connection;
     }
