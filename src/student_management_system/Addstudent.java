@@ -167,14 +167,12 @@ public void tb(){
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         emailtxt = new javax.swing.JTextField();
-        birthdatetxt = new com.github.lgooddatepicker.components.DatePicker();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1344, 1000));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -339,7 +337,6 @@ public void tb(){
         jLabel10.setForeground(new java.awt.Color(153, 153, 255));
         jLabel10.setText("Contact:");
 
-        firstnametxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         firstnametxt.setForeground(new java.awt.Color(153, 153, 255));
         firstnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         firstnametxt.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +345,6 @@ public void tb(){
             }
         });
 
-        lastnametxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lastnametxt.setForeground(new java.awt.Color(153, 153, 255));
         lastnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lastnametxt.addActionListener(new java.awt.event.ActionListener() {
@@ -357,7 +353,6 @@ public void tb(){
             }
         });
 
-        gendertxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         gendertxt.setForeground(new java.awt.Color(153, 153, 255));
         gendertxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gendertxt.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +361,6 @@ public void tb(){
             }
         });
 
-        addresstxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addresstxt.setForeground(new java.awt.Color(153, 153, 255));
         addresstxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addresstxt.addActionListener(new java.awt.event.ActionListener() {
@@ -375,7 +369,6 @@ public void tb(){
             }
         });
 
-        yeartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         yeartxt.setForeground(new java.awt.Color(153, 153, 255));
         yeartxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         yeartxt.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +377,6 @@ public void tb(){
             }
         });
 
-        gradetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         gradetxt.setForeground(new java.awt.Color(153, 153, 255));
         gradetxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gradetxt.addActionListener(new java.awt.event.ActionListener() {
@@ -393,7 +385,6 @@ public void tb(){
             }
         });
 
-        contacttxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contacttxt.setForeground(new java.awt.Color(153, 153, 255));
         contacttxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         contacttxt.addActionListener(new java.awt.event.ActionListener() {
@@ -410,7 +401,6 @@ public void tb(){
         jLabel12.setForeground(new java.awt.Color(153, 153, 255));
         jLabel12.setText("Email:");
 
-        emailtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         emailtxt.setForeground(new java.awt.Color(153, 153, 255));
         emailtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         emailtxt.addActionListener(new java.awt.event.ActionListener() {
@@ -418,9 +408,6 @@ public void tb(){
                 emailtxtActionPerformed(evt);
             }
         });
-
-        birthdatetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        birthdatetxt.setForeground(new java.awt.Color(153, 153, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -441,8 +428,7 @@ public void tb(){
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(firstnametxt, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lastnametxt)
-                        .addComponent(gendertxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(gendertxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -513,10 +499,8 @@ public void tb(){
                             .addComponent(jLabel10)
                             .addComponent(contacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(510, 510, 510)))
+                        .addComponent(jLabel11)
+                        .addGap(519, 519, 519)))
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -742,7 +726,6 @@ public void tb(){
     javax.swing.JButton Manage_course_btn;
     private javax.swing.JTextField addresstxt;
     javax.swing.JButton attendant;
-    private com.github.lgooddatepicker.components.DatePicker birthdatetxt;
     private javax.swing.JTextField contacttxt;
     javax.swing.JButton delete_btn;
     private javax.swing.JTextField emailtxt;
