@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class Connect {
     public static final String url="jdbc:mysql://127.0.0.1:3306/studentmanagementsystem";
     public static final String user="root";
-    public static final String password="kongming16";
+    public static final String password="062005hak";
     public static Connection getConnection(){
         Connection connection=null;
         try {
@@ -26,7 +26,11 @@ public class Connect {
         }
         catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
+
             
+
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
+
         }
         return connection;
     }
