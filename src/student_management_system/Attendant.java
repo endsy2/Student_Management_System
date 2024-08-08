@@ -37,13 +37,10 @@ public class Attendant extends javax.swing.JFrame {
         update_btn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1370, 1000));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -174,19 +171,6 @@ public class Attendant extends javax.swing.JFrame {
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
         jlabel_head.setText("Attendent");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,14 +190,9 @@ public class Attendant extends javax.swing.JFrame {
                 .addComponent(jlabel_head)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+                .addContainerGap(855, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,9 +201,7 @@ public class Attendant extends javax.swing.JFrame {
                 .addComponent(jlabel_head)
                 .addGap(8, 8, 8)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addContainerGap(947, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -410,8 +387,6 @@ public class Attendant extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     javax.swing.JLabel jlabel_head;
     javax.swing.JButton search_btn;
     javax.swing.JButton student_information_btn;
