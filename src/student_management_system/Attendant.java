@@ -38,6 +38,17 @@ public class Attendant extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Label1 = new javax.swing.JLabel();
+        idtxt1 = new javax.swing.JTextField();
+        Label2 = new javax.swing.JLabel();
+        idtxt2 = new javax.swing.JTextField();
+        Label3 = new javax.swing.JLabel();
+        idtxt3 = new javax.swing.JTextField();
+        Label4 = new javax.swing.JLabel();
+        idtxt4 = new javax.swing.JTextField();
+        Label5 = new javax.swing.JLabel();
+        idtxt5 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -161,47 +172,180 @@ public class Attendant extends javax.swing.JFrame {
                 .addComponent(attendant, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(Manage_course_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1100, 911));
 
-        jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Attendent");
+        jlabel_head.setText("Attendent Student Report");
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Track Attendant");
+        jButton1.setForeground(new java.awt.Color(51, 51, 255));
+        jButton1.setText("Track Attendent");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        Label1.setBackground(new java.awt.Color(102, 102, 102));
+        Label1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label1.setForeground(new java.awt.Color(153, 153, 153));
+        Label1.setText("Level : ");
+
+        idtxt1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idtxt1.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxt1ActionPerformed(evt);
+            }
+        });
+
+        Label2.setBackground(new java.awt.Color(102, 102, 102));
+        Label2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label2.setForeground(new java.awt.Color(153, 153, 153));
+        Label2.setText("Course : ");
+
+        idtxt2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idtxt2.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxt2ActionPerformed(evt);
+            }
+        });
+
+        Label3.setBackground(new java.awt.Color(102, 102, 102));
+        Label3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label3.setForeground(new java.awt.Color(153, 153, 153));
+        Label3.setText("Room : ");
+
+        idtxt3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idtxt3.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxt3ActionPerformed(evt);
+            }
+        });
+
+        Label4.setBackground(new java.awt.Color(102, 102, 102));
+        Label4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label4.setForeground(new java.awt.Color(153, 153, 153));
+        Label4.setText("Time : ");
+
+        idtxt4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idtxt4.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxt4ActionPerformed(evt);
+            }
+        });
+
+        Label5.setBackground(new java.awt.Color(102, 102, 102));
+        Label5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label5.setForeground(new java.awt.Color(153, 153, 153));
+        Label5.setText("Teacher : ");
+
+        idtxt5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idtxt5.setForeground(new java.awt.Color(153, 153, 255));
+        idtxt5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idtxt5ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jTextField1.setText("|");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(449, 449, 449)
-                .addComponent(jlabel_head)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(855, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jlabel_head)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(Label1)
+                                .addGap(16, 16, 16))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Label4)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idtxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(155, 155, 155)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(Label2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(idtxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(Label3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(idtxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Label5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idtxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jlabel_head)
-                .addGap(8, 8, 8)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(947, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jlabel_head)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(Label1)
+                                        .addComponent(idtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Label3)
+                                        .addComponent(idtxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Label5)
+                                    .addComponent(idtxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(idtxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Label2)
+                                .addComponent(idtxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Label4)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(896, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,17 +354,16 @@ public class Attendant extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1104, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1104, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -279,6 +422,26 @@ public class Attendant extends javax.swing.JFrame {
         nav.show();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void idtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt1ActionPerformed
+
+    private void idtxt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt2ActionPerformed
+
+    private void idtxt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt3ActionPerformed
+
+    private void idtxt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt4ActionPerformed
+
+    private void idtxt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,13 +543,24 @@ public class Attendant extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton Addstudent_btn;
+    private javax.swing.JLabel Label1;
+    private javax.swing.JLabel Label2;
+    private javax.swing.JLabel Label3;
+    private javax.swing.JLabel Label4;
+    private javax.swing.JLabel Label5;
     javax.swing.JButton Manage_course_btn;
     javax.swing.JButton attendant;
     javax.swing.JButton delete_btn;
     javax.swing.JButton home_btn;
+    public javax.swing.JTextField idtxt1;
+    public javax.swing.JTextField idtxt2;
+    public javax.swing.JTextField idtxt3;
+    public javax.swing.JTextField idtxt4;
+    public javax.swing.JTextField idtxt5;
     private javax.swing.JButton jButton1;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
     javax.swing.JLabel jlabel_head;
     javax.swing.JButton search_btn;
     javax.swing.JButton student_information_btn;
