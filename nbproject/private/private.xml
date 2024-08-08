@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/student_management_system/Addstudent.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>669</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Addstudent.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Course_management.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Track_attendant.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Student_information.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Update.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Attendant.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Search.java</file>
-            <file>file:/C:/Users/MSI/OneDrive%20-%20Royal%20University%20of%20Phnom%20Penh/Documents/NetBeansProjects/student_management_system/src/student_management_system/Delete.java</file>
-=======
+
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/U-ser/Documents/NetBeansProjects/Systemstudent/Student_Management_System/src/student_management_system/Attendant.java</file>
             <file>file:/C:/Users/U-ser/Documents/NetBeansProjects/Systemstudent/Student_Management_System/src/student_management_system/Update.java</file>
+            <file>file:/C:/Users/U-ser/Documents/NetBeansProjects/Systemstudent/Student_Management_System/src/student_management_system/Class/Connect.java</file>
+            <file>file:/C:/Users/U-ser/Documents/NetBeansProjects/Systemstudent/Student_Management_System/src/student_management_system/Addstudent.java</file>
             <file>file:/C:/Users/U-ser/Documents/NetBeansProjects/Systemstudent/Student_Management_System/src/student_management_system/Search.java</file>
->>>>>>> f13251920cf944859417a0518ef496a4890b4077
-=======
 
->>>>>>> 0c129f883d15f69dc9af8f06f24dae275ff0965c
         </group>
     </open-files>
 </project-private>
