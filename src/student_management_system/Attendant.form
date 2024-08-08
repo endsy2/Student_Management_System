@@ -281,6 +281,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -328,12 +329,29 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="449" max="-2" attributes="0"/>
+                  <Component id="jlabel_head" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="855" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="204" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="1078" max="-2" attributes="0"/>
+
+>>>>>>> ed6e20a3f1957aadebb2f6c71249dbab364f8ceb
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -384,6 +402,19 @@
                       </Group>
                   </Group>
                   <EmptySpace pref="896" max="32767" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jlabel_head" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="56" max="-2" attributes="0"/>
+
+                  <EmptySpace pref="947" max="32767" attributes="0"/>
+
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="821" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+
+>>>>>>> ed6e20a3f1957aadebb2f6c71249dbab364f8ceb
               </Group>
           </Group>
         </DimensionLayout>
