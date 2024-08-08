@@ -167,6 +167,7 @@ public void tb(){
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         emailtxt = new javax.swing.JTextField();
+        birthdatetxt = new com.github.lgooddatepicker.components.DatePicker();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -179,78 +180,78 @@ public void tb(){
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 573));
 
+        student_information_btn.setText("Student Information");
         student_information_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         student_information_btn.setForeground(new java.awt.Color(153, 153, 255));
-        student_information_btn.setText("Student Information");
         student_information_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 student_information_btnActionPerformed(evt);
             }
         });
 
+        Addstudent_btn.setText("Add Student");
         Addstudent_btn.setBackground(new java.awt.Color(153, 153, 255));
         Addstudent_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Addstudent_btn.setForeground(new java.awt.Color(255, 255, 255));
-        Addstudent_btn.setText("Add Student");
         Addstudent_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Addstudent_btnActionPerformed(evt);
             }
         });
 
+        delete_btn.setText("Delete");
         delete_btn.setBackground(new java.awt.Color(242, 242, 242));
         delete_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         delete_btn.setForeground(new java.awt.Color(153, 153, 255));
-        delete_btn.setText("Delete");
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_btnActionPerformed(evt);
             }
         });
 
+        search_btn.setText("Search");
         search_btn.setBackground(new java.awt.Color(242, 242, 242));
         search_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         search_btn.setForeground(new java.awt.Color(153, 153, 255));
-        search_btn.setText("Search");
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_btnActionPerformed(evt);
             }
         });
 
+        attendant.setText("Attendant");
         attendant.setBackground(new java.awt.Color(242, 242, 242));
         attendant.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         attendant.setForeground(new java.awt.Color(153, 153, 255));
-        attendant.setText("Attendant");
         attendant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 attendantActionPerformed(evt);
             }
         });
 
+        Manage_course_btn.setText("Manage courses");
         Manage_course_btn.setBackground(new java.awt.Color(242, 242, 242));
         Manage_course_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Manage_course_btn.setForeground(new java.awt.Color(153, 153, 255));
-        Manage_course_btn.setText("Manage courses");
         Manage_course_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Manage_course_btnActionPerformed(evt);
             }
         });
 
+        home_btn.setText("Home");
         home_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         home_btn.setForeground(new java.awt.Color(153, 153, 255));
-        home_btn.setText("Home");
         home_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_btnActionPerformed(evt);
             }
         });
 
+        update_btn1.setText("update");
         update_btn1.setBackground(new java.awt.Color(242, 242, 242));
         update_btn1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         update_btn1.setForeground(new java.awt.Color(153, 153, 255));
-        update_btn1.setText("update");
         update_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_btn1ActionPerformed(evt);
@@ -299,9 +300,9 @@ public void tb(){
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1100, 911));
 
+        jlabel_head.setText("Add Student");
         jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Add Student");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(765, 600));
@@ -309,100 +310,100 @@ public void tb(){
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 255));
 
+        jLabel4.setText("First Name:");
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel4.setText("First Name:");
 
+        jLabel5.setText("Last Name:");
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel5.setText("Last Name:");
 
+        jLabel6.setText("Gender:");
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel6.setText("Gender:");
 
+        jLabel7.setText("Address:");
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel7.setText("Address:");
 
+        jLabel8.setText("Year:");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel8.setText("Year:");
 
+        jLabel9.setText("Grade:");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel9.setText("Grade:");
 
+        jLabel10.setText("Contact:");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel10.setText("Contact:");
 
-        firstnametxt.setForeground(new java.awt.Color(153, 153, 255));
         firstnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        firstnametxt.setForeground(new java.awt.Color(153, 153, 255));
         firstnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnametxtActionPerformed(evt);
             }
         });
 
-        lastnametxt.setForeground(new java.awt.Color(153, 153, 255));
         lastnametxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lastnametxt.setForeground(new java.awt.Color(153, 153, 255));
         lastnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnametxtActionPerformed(evt);
             }
         });
 
-        gendertxt.setForeground(new java.awt.Color(153, 153, 255));
         gendertxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gendertxt.setForeground(new java.awt.Color(153, 153, 255));
         gendertxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gendertxtActionPerformed(evt);
             }
         });
 
-        addresstxt.setForeground(new java.awt.Color(153, 153, 255));
         addresstxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addresstxt.setForeground(new java.awt.Color(153, 153, 255));
         addresstxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addresstxtActionPerformed(evt);
             }
         });
 
-        yeartxt.setForeground(new java.awt.Color(153, 153, 255));
         yeartxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        yeartxt.setForeground(new java.awt.Color(153, 153, 255));
         yeartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yeartxtActionPerformed(evt);
             }
         });
 
-        gradetxt.setForeground(new java.awt.Color(153, 153, 255));
         gradetxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gradetxt.setForeground(new java.awt.Color(153, 153, 255));
         gradetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradetxtActionPerformed(evt);
             }
         });
 
-        contacttxt.setForeground(new java.awt.Color(153, 153, 255));
         contacttxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contacttxt.setForeground(new java.awt.Color(153, 153, 255));
         contacttxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contacttxtActionPerformed(evt);
             }
         });
 
+        jLabel11.setText("Birth Date:");
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel11.setText("Birth Date:");
 
+        jLabel12.setText("Email:");
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel12.setText("Email:");
 
-        emailtxt.setForeground(new java.awt.Color(153, 153, 255));
         emailtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        emailtxt.setForeground(new java.awt.Color(153, 153, 255));
         emailtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailtxtActionPerformed(evt);
@@ -428,7 +429,8 @@ public void tb(){
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(firstnametxt, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lastnametxt)
-                        .addComponent(gendertxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(gendertxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -499,8 +501,10 @@ public void tb(){
                             .addComponent(jLabel10)
                             .addComponent(contacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel11)
-                        .addGap(519, 519, 519)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(517, 517, 517)))
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -521,10 +525,10 @@ public void tb(){
         jTable2.setShowGrid(true);
         jScrollPane1.setViewportView(jTable2);
 
+        jButton1.setText("Submit");
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -556,9 +560,9 @@ public void tb(){
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jlabel_head)
-                .addGap(51, 51, 51)
+                .addGap(57, 57, 57)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -726,6 +730,7 @@ public void tb(){
     javax.swing.JButton Manage_course_btn;
     private javax.swing.JTextField addresstxt;
     javax.swing.JButton attendant;
+    private com.github.lgooddatepicker.components.DatePicker birthdatetxt;
     private javax.swing.JTextField contacttxt;
     javax.swing.JButton delete_btn;
     private javax.swing.JTextField emailtxt;
