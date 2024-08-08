@@ -71,6 +71,7 @@ public class Search extends javax.swing.JFrame {
         emailtxt = new javax.swing.JTextField();
         message = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        birthdatetxt = new com.github.lgooddatepicker.components.DatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -80,9 +81,9 @@ public class Search extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 573));
 
+        student_information_btn.setText("Student Information");
         student_information_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         student_information_btn.setForeground(new java.awt.Color(153, 153, 255));
-        student_information_btn.setText("Student Information");
         student_information_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 student_information_btnActionPerformed(evt);
@@ -293,8 +294,8 @@ public class Search extends javax.swing.JFrame {
         jLabel10.setText("Contact:");
 
         idtxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        idtxt.setForeground(new java.awt.Color(153, 153, 255));
         idtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        idtxt.setForeground(new java.awt.Color(153, 153, 255));
         idtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idtxtActionPerformed(evt);
@@ -410,12 +411,14 @@ public class Search extends javax.swing.JFrame {
                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(firstnametxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(idtxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastnametxt)
-                            .addComponent(gendertxt))
-                        .addGap(127, 127, 127)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(firstnametxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(idtxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lastnametxt)
+                                .addComponent(gendertxt))
+                            .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(114, 114, 114)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,9 +481,11 @@ public class Search extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel6)))
-                .addGap(68, 68, 68)
+                .addGap(66, 66, 66)
                 .addComponent(message)
                 .addGap(276, 276, 276)
                 .addComponent(jLabel3)
@@ -746,6 +751,7 @@ public class Search extends javax.swing.JFrame {
     javax.swing.JButton Manage_course_btn;
     public javax.swing.JTextField addresstxt;
     javax.swing.JButton attendant;
+    private com.github.lgooddatepicker.components.DatePicker birthdatetxt;
     public javax.swing.JTextField contacttxt;
     javax.swing.JButton delete_btn;
     public javax.swing.JTextField emailtxt;
