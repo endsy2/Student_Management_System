@@ -4,40 +4,31 @@
  */
 package student_management_system;
 
-import Crud.CourseEdit;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
+import Crud.TeacherEdit;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import student_management_system.Class.Connect;
-import student_management_system.Class.Course_data;
 import java.sql.Connection;
 import java.sql.*;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
  * @author MSI
  */
-public final class Course_management extends javax.swing.JFrame {
+public final class Teacher extends javax.swing.JFrame {
 
     /**
      * Creates new form Main_navigation
      */
-    public Course_management() {
-
+    public Teacher() {
+        
         initComponents();
-        init();
+        teacherDisplay(teacherdisplay);
+        
     }
 
     /**
@@ -57,11 +48,16 @@ public final class Course_management extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jlabel_head = new javax.swing.JLabel();
         big_container = new javax.swing.JPanel();
-        container = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        teacherdisplay = new javax.swing.JTable();
+        searchtxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        searchbtn = new javax.swing.JButton();
+        refreshbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1400, 800));
         setSize(new java.awt.Dimension(900, 800));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -77,9 +73,9 @@ public final class Course_management extends javax.swing.JFrame {
             }
         });
 
-        Manage_course_btn.setBackground(new java.awt.Color(153, 153, 255));
+        Manage_course_btn.setBackground(new java.awt.Color(255, 255, 255));
         Manage_course_btn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        Manage_course_btn.setForeground(new java.awt.Color(255, 255, 255));
+        Manage_course_btn.setForeground(new java.awt.Color(153, 153, 255));
         Manage_course_btn.setText("Manage courses");
         Manage_course_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +92,9 @@ public final class Course_management extends javax.swing.JFrame {
             }
         });
 
+        student_information_btn1.setBackground(new java.awt.Color(153, 153, 255));
         student_information_btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        student_information_btn1.setForeground(new java.awt.Color(153, 153, 255));
+        student_information_btn1.setForeground(new java.awt.Color(255, 255, 255));
         student_information_btn1.setText("Teacher");
         student_information_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,38 +134,39 @@ public final class Course_management extends javax.swing.JFrame {
 
         jlabel_head.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jlabel_head.setForeground(new java.awt.Color(153, 153, 255));
-        jlabel_head.setText("Course management");
+        jlabel_head.setText("Teacher Information");
 
         big_container.setBackground(new java.awt.Color(255, 255, 255));
 
-        container.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
-        container.setLayout(containerLayout);
-        containerLayout.setHorizontalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1016, Short.MAX_VALUE)
-        );
-        containerLayout.setVerticalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
-        );
+        teacherdisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        teacherdisplay.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(teacherdisplay);
 
         javax.swing.GroupLayout big_containerLayout = new javax.swing.GroupLayout(big_container);
         big_container.setLayout(big_containerLayout);
         big_containerLayout.setHorizontalGroup(
             big_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, big_containerLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(big_containerLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         big_containerLayout.setVerticalGroup(
             big_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(big_containerLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
@@ -181,35 +179,63 @@ public final class Course_management extends javax.swing.JFrame {
             }
         });
 
+        searchbtn.setBackground(new java.awt.Color(153, 153, 255));
+        searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
+        searchbtn.setText("SEARCH");
+        searchbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchbtnActionPerformed(evt);
+            }
+        });
+
+        refreshbtn.setBackground(new java.awt.Color(153, 153, 255));
+        refreshbtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        refreshbtn.setForeground(new java.awt.Color(255, 255, 255));
+        refreshbtn.setText("REFRESH");
+        refreshbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(big_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jlabel_head)
-                        .addGap(376, 376, 376))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addComponent(big_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(411, 411, 411)
+                .addComponent(jlabel_head)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(refreshbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addComponent(jlabel_head)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(big_container, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refreshbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(big_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,13 +245,13 @@ public final class Course_management extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -255,141 +281,85 @@ public final class Course_management extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_student_information_btn1ActionPerformed
 
+    private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
+       String id=searchtxt.getText();
+       int Intid=Integer.parseInt(id);
+       String searchquery ="Call searchteacher(?)";
+       DefaultTableModel tb=new DefaultTableModel();
+       teacherdisplay.setModel(tb);
+       db(settable(tb,teacherdisplay),searchquery,Intid);
+    }//GEN-LAST:event_searchbtnActionPerformed
+
+    private void refreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshbtnActionPerformed
+        teacherDisplay(teacherdisplay);
+        searchtxt.setText("");
+    }//GEN-LAST:event_refreshbtnActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CourseEdit courseEdit_nav=new CourseEdit();
-        courseEdit_nav.show();
+        TeacherEdit teacherEdit_nav=new TeacherEdit();
+        teacherEdit_nav.show();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-public List<Course_data> datalist() {
-    List<Course_data> teachers = new ArrayList<>();
-    try (Connection con = Connect.getConnection(); Statement state = con.createStatement()) {
-        String query = """
-                SELECT * FROM class 
-                INNER JOIN teacher ON class.teacherID = teacher.teacherid
-                INNER JOIN subject ON class.subjectid = subject.idsubject""";
-
-        try (ResultSet rs = state.executeQuery(query)) {
-            while (rs.next()) {
-                int teacherID = rs.getInt("teacherid");
-                int classID = rs.getInt("roomNumber");
-                String subject = rs.getString("subject_name");
-                int level=rs.getInt ("level");
-                String fullName = rs.getString("fullname");
-                String start = rs.getString("startTime");
-                String end = rs.getString("endTime");
-
-                // Create a new Course_data instance and add it to the list
-                Course_data courseData = new Course_data(teacherID, classID, subject,level, fullName, start, end);
-                teachers.add(courseData);
-            }
-        }
-    } catch (SQLException ex) {
-        Logger.getLogger(Course_management.class.getName()).log(Level.SEVERE, null, ex);
+    public static void teacherDisplay(JTable teacherdisplay){
+        
+        String teacherquery="CALL displayallteacher()";
+        DefaultTableModel tb=new DefaultTableModel();
+        teacherdisplay.setModel(tb);
+        db( settable(tb,teacherdisplay),teacherquery);
+        
     }
-    return teachers;
-}
-
-public void init() {
-    List<Course_data> courseList = datalist();
-
-    // Initialize container JPanel and set layout
-//    JPanel container = new JPanel();
-    container.setLayout(new GridLayout(0, 3, 50, 50)); // 3 columns, dynamic rows
-
-    // Set fixed size for the container JPanel
-//    container.setPreferredSize(new Dimension(900, 180)); // Fixed size for the container
-
-    // Loop to create and add child JPanels
-    for (Course_data course : courseList) {
-        String start = course.getStart().substring(0, 5);
-        String end = course.getEnd().substring(0, 5);
-
-        JPanel childPanel = new JPanel();
-        childPanel.setLayout(new GridLayout(5, 2)); // 4 rows, 2 columns, with gaps
-
-        // Set fixed size for the child panel
-        childPanel.setPreferredSize(new Dimension(0, 150)); // Fixed size for each child panel
-
-        // Add JLabels to the child panel
-        JLabel label1 = new JLabel("  Class :");
-        JLabel classtxt = new JLabel(Integer.toString(course.getClassID()));
-        JLabel label3 = new JLabel("  Teacher:");
-        JLabel fullnametxt = new JLabel(course.getFullName());
-        JLabel label2 = new JLabel("  Subject:");
-        JLabel subjecttxt = new JLabel(course.getSubject());
-        JLabel label4=new JLabel("  Level:");
-        JLabel leveltxt=new JLabel(Integer.toString(course.getLevel()));
-        JLabel label5 = new JLabel("  Time:");
-        JLabel timetxt = new JLabel(start + " - " + end);
-
-        JLabel[] arr = {label1, classtxt, label2, subjecttxt, label3, fullnametxt, label4,leveltxt,label5, timetxt};
-        for (JLabel key2 : arr) {
-            key2.setForeground(Color.white);
-            key2.setFont(new Font("Times New Roman", Font.BOLD, 18));
-        }
-
-        // Add labels to the child panel
-        childPanel.add(label1);
-        childPanel.add(classtxt);
-        childPanel.add(label3);
-        childPanel.add(fullnametxt);
-        childPanel.add(label2);
-        childPanel.add(subjecttxt);
-        childPanel.add(label4);
-        childPanel.add(leveltxt);
-        childPanel.add(label5);
-        childPanel.add(timetxt);
-
-        // Set background of child panel
-        childPanel.setBackground(new Color(153, 153, 255));
-
-        // Handle mouse click events
-        childPanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int classID = course.getClassID();
-                String start=course.getStart();
-                String end=course.getEnd();
-                System.out.println("Class ID: " + classID);
-                System.out.println("start:" + start);
-                System.out.println("end:" + end);
-
-                Course_management_info classinfo = new Course_management_info();
-                try {
-                    classinfo.settitle(classID, start, end);
-                    dispose();
-                } catch (SQLException | ParseException ex) {
-                    Logger.getLogger(Course_management.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                classinfo.show();
-                // Uncomment if you want to close the current window
-                // dispose();
-            }
+    public static DefaultTableModel settable(DefaultTableModel tb,JTable teacherdisplay)
+    {
+        
+        JTableHeader header = teacherdisplay.getTableHeader();
+        header.setFont(new Font("Verdana", Font.BOLD, 14));
+        tb.setColumnIdentifiers(new Object []{
+           "ID",
+           "Full Name",
+           "Subject1",
+           "Subject2",
         });
-
-        // Add the child panel to the container
-        container.add(childPanel);
+        
+        return tb;
     }
-//    JPanel newContainer=new JPanel();
-//    newContainer.add(container);
-//    newContainer.setBackground(Color.WHITE);
-    
-
-    // Wrap the container JPanel in a JScrollPane
-    JScrollPane scrollPane = new JScrollPane(container);
-    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//
-//    // Set preferred size for JScrollPane (optional, if you want to control the JScrollPane size)
-//    scrollPane.setPreferredSize(new Dimension(1200, 400));
-//
-//    // Add the JScrollPane to the big_container panel
-    big_container.setLayout(new BorderLayout());
-    big_container.add(scrollPane, BorderLayout.CENTER);
-}
-
-
-
+    public static void db(DefaultTableModel tb,String teacherquery){
+        try(Connection con =Connect.getConnection();
+            PreparedStatement prsm=con.prepareStatement(teacherquery)){
+            
+            try(ResultSet rs =prsm.executeQuery()){
+                while(rs.next()){
+                    tb.addRow(new Object[]{
+                    rs.getInt("teacherid"),
+                    rs.getString("fullname"),
+                    rs.getString ("subject_name1"),
+                    rs.getString("subject_name2")
+                    });
+                    
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    void db(DefaultTableModel tb,String teacherquery,int id ){
+        try(Connection con =Connect.getConnection();
+            PreparedStatement prsm=con.prepareStatement(teacherquery)){
+            prsm.setInt(1,id);
+            try(ResultSet rs =prsm.executeQuery()){
+                while(rs.next()){
+                    tb.addRow(new Object[]{
+                    rs.getInt("teacherid"),
+                    rs.getString("fullname"),
+                    rs.getString ("subject_name1"),
+                    rs.getString("subject_name2")
+                    });
+                    
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -407,14 +377,38 @@ public void init() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Course_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Course_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Course_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Course_management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -427,7 +421,7 @@ public void init() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Course_management().setVisible(true);
+                new Teacher().setVisible(true);
             }
         });
     }
@@ -435,13 +429,17 @@ public void init() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton Manage_course_btn;
     private javax.swing.JPanel big_container;
-    private javax.swing.JPanel container;
     javax.swing.JButton home_btn;
     private javax.swing.JButton jButton1;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     javax.swing.JLabel jlabel_head;
+    private javax.swing.JButton refreshbtn;
+    private javax.swing.JButton searchbtn;
+    private javax.swing.JTextField searchtxt;
     javax.swing.JButton student_information_btn;
     javax.swing.JButton student_information_btn1;
+    public static javax.swing.JTable teacherdisplay;
     // End of variables declaration//GEN-END:variables
 }
