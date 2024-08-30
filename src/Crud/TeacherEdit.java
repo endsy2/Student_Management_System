@@ -367,7 +367,7 @@ public void insert () throws ParseException {
         String fullname=fullnametxt.getText();
         String subject1=subject1txt.getSelectedItem().toString();
         String subject2=subject2txt.getSelectedItem().toString();
-        if(subject2=="NULL"){
+        if(subject2==null){
         subject2=" ";
         }
         String insertQuery = """
@@ -400,7 +400,7 @@ public void update () throws ParseException{
     String subject1=subject1txt.getSelectedItem().toString();
     String subject2=subject2txt.getSelectedItem().toString();
     
-    if(subject2=="NULL"){
+    if(subject2==null){
         subject2=" ";
     }
     

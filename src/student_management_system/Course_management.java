@@ -265,18 +265,18 @@ public List<Course_data> datalist() {
     try (Connection con = Connect.getConnection(); Statement state = con.createStatement()) {
         String query = """
                 SELECT * FROM class 
-                INNER JOIN teacher ON class.teacherID = teacher.teacherid
+                LEFT JOIN teacher ON class.teacherID = teacher.idteacher
                 INNER JOIN subject ON class.subjectid = subject.idsubject""";
 
         try (ResultSet rs = state.executeQuery(query)) {
             while (rs.next()) {
                 int teacherID = rs.getInt("teacherid");
-                int classID = rs.getInt("roomNumber");
+                int classID = rs.getInt("roomnumber");
                 String subject = rs.getString("subject_name");
                 int level=rs.getInt ("level");
                 String fullName = rs.getString("fullname");
-                String start = rs.getString("startTime");
-                String end = rs.getString("endTime");
+                String start = rs.getString("starttime");
+                String end = rs.getString("endtime");
 
                 // Create a new Course_data instance and add it to the list
                 Course_data courseData = new Course_data(teacherID, classID, subject,level, fullName, start, end);

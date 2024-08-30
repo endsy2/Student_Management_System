@@ -458,9 +458,9 @@ public final class CourseEdit extends javax.swing.JFrame {
     
     String query="""
                   SELECT * FROM class 
-                                 INNER JOIN teacher ON class.teacherID = teacher.teacherid
+                                 LEFT JOIN teacher ON class.teacherID = teacher.idteacher
                                  INNER JOIN subject ON class.subjectid = subject.idsubject
-                                 ORDER BY ID""";
+                                 ORDER BY idclass""";
     DefaultTableModel tb=new DefaultTableModel();
     tb.setColumnIdentifiers(new Object[]{
             "ID",
@@ -478,13 +478,13 @@ public final class CourseEdit extends javax.swing.JFrame {
             try(ResultSet rs =prsm.executeQuery()){
                 while(rs.next()){
                     tb.addRow(new Object[]{
-                    rs.getInt("ID"),
+                    rs.getInt("idclass"),
                     rs.getInt("roomnumber"),
                     rs.getString ("fullname"),
                     rs.getString("subject_name"),
                     rs.getInt ("level"),
-                    rs.getString("startTime").substring(0,5),
-                    rs.getString("endTime").substring(0,5)
+                    rs.getString("starttime").substring(0,5),
+                    rs.getString("endtime").substring(0,5)
                     });
                     
                 }
@@ -636,8 +636,8 @@ void setsubject() {
             s1.subject_name AS subject1,
             s2.subject_name AS subject2 
         FROM teacher t
-        LEFT JOIN subject s1 ON t.subjectid1 = s1.idsubject
-        LEFT JOIN subject s2 ON t.subjectid2 = s2.idsubject
+        LEFT JOIN subject s1 ON t.subject1 = s1.idsubject
+        LEFT JOIN subject s2 ON t.subject2 = s2.idsubject
         WHERE t.fullname = ?
         LIMIT 1;
     """;

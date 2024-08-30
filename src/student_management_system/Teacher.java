@@ -329,10 +329,10 @@ public final class Teacher extends javax.swing.JFrame {
             try(ResultSet rs =prsm.executeQuery()){
                 while(rs.next()){
                     tb.addRow(new Object[]{
-                    rs.getInt("teacherid"),
+                    rs.getInt("idteacher"),
                     rs.getString("fullname"),
-                    rs.getString ("subject_name1"),
-                    rs.getString("subject_name2")
+                    rs.getString ("subject1_name"),
+                    rs.getString("subject2_name")
                     });
                     
                 }
@@ -348,10 +348,10 @@ public final class Teacher extends javax.swing.JFrame {
             try(ResultSet rs =prsm.executeQuery()){
                 while(rs.next()){
                     tb.addRow(new Object[]{
-                    rs.getInt("teacherid"),
+                    rs.getInt("idteacher"),
                     rs.getString("fullname"),
-                    rs.getString ("subject_name1"),
-                    rs.getString("subject_name2")
+                    rs.getString ("subject1_name"),
+                    rs.getString("subject2_name")
                     });
                     
                 }
