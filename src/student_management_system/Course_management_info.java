@@ -110,9 +110,9 @@ public void settitle(int classID, String start, String end) throws SQLException,
             try (ResultSet rs2 = prsm2.executeQuery()) {
                 while (rs2.next()) {
                     tb.addRow(new Object[]{
-                        rs2.getInt("Student_ID"),
-                        rs2.getString("FirstName"),
-                        rs2.getString("LastName"),
+                        rs2.getInt("idstudent"),
+                        rs2.getString("firstname"),
+                        rs2.getString("lastname"),
                         rs2.getDouble("midterm"),
                         rs2.getDouble("final"),
                         rs2.getDouble("total"),
@@ -313,11 +313,11 @@ public void search() {
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     
-                    int studentID = rs.getInt("Student_ID");
-                    String firstName = rs.getString("FirstName");
-                    String lastName = rs.getString("LastName");
+                    int studentID = rs.getInt("idstudent");
+                    String firstName = rs.getString("firstname");
+                    String lastName = rs.getString("lastname");
                     double total=rs.getDouble("total_attendent");
-                    int status = rs.getInt("Status");
+                    int status = rs.getInt("Statueid");
 
                     // Determine the checkbox states based on the status
                     boolean isPresent = status == 1;

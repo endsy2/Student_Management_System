@@ -21,7 +21,16 @@ import javax.swing.table.DefaultTableModel;
 public class Display {
 
     static public void display(DefaultTableModel tb, Statement state) {
-        executeQuery(tb, state, "CALL display();");
+        String display="""
+                       SELECT *
+                            FROM student_information s
+                            INNER JOIN student stu ON stu.idstudent = s.Student_ID
+                            INNER JOIN gender g ON g.idgender = s.genderid
+                            INNER JOIN address a ON a.id = s.addressid
+                            INNER JOIN class c ON c.idclass = s.classid
+                            INNER JOIN subject sub ON sub.idsubject = c.subjectid
+                            ORDER BY s.Student_ID;""";
+        executeQuery(tb, state, display);
     }
 
     // New function with a different query
@@ -29,21 +38,14 @@ public class Display {
         // Modify the query here
         String newQuery = """
                           SELECT * 
-                                \tFROM student_information
-                                \t\t  INNER JOIN student 
-                                \t\t  ON student_information.Student_ID =student.Student_ID
-                                \t\t  INNER JOIN gender 
-                                \t\t  ON student_information.Gender_ID=gender.GenderID
-                                \t\t  INNER JOIN address
-                                \t\t  ON student_information.addressID=address.addressId      
-                                          INNER JOIN class
-                                          ON student.classID=class.ID
-                                          INNER JOIN subject
-                                          ON class.subjectid=subject.idsubject
-                                          WHERE student.Student_ID="""+id; // Replace this with your new query
+                              FROM student_information s
+                              INNER JOIN student stu ON stu.idstudent = s.Student_ID
+                              INNER JOIN gender g ON g.idgender = s.genderid
+                              INNER JOIN address a ON a.id = s.addressid
+                              INNER JOIN class c ON c.idclass=s.classid
+                              INNER JOIN subject sub ON sub.idsubject=c.subjectid
+                                          WHERE s.Student_ID="""+id; // Replace this with your new query
         executeQuery(tb, state, newQuery);
-        
-        
     }
 
     // Helper method to avoid code duplication
