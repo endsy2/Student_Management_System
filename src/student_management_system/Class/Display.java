@@ -90,7 +90,7 @@ public class Display {
             } while (rs.next());
         } catch (SQLException ex) {
             System.err.println("SQL Error: " + ex.getMessage());
-            JOptionPane.showMessageDialog(null, "SQL Error: " + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "SQL Error: " + ex.getMessage());
         }
     }
 }

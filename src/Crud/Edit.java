@@ -8,17 +8,19 @@ import javax.swing.table.DefaultTableModel;
 import student_management_system.Class.Connect;
 import student_management_system.Student_information;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time; // For java.sql.Time
+import java.sql.Time; // for java.sql.Time
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.text.SimpleDateFormat;  
-import java.time.LocalDate;
-import java.time.ZoneId;
+
 /**
  *
  * @author MSI
@@ -31,8 +33,8 @@ public final class Edit extends javax.swing.JFrame {
     public Edit() {
         initComponents();
         Student_information.TB(jTable2);
-//        setclass();
-//        setstarttime();
+        setclass();
+        setstarttime();
 //        setendtime();
     }
     
@@ -69,9 +71,11 @@ public final class Edit extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         addresstxt = new javax.swing.JComboBox<>();
         gendertxt = new javax.swing.JComboBox<>();
-        classtxt = new javax.swing.JTextField();
-        starttxt = new javax.swing.JTextField();
-        endtxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        leveltxt = new javax.swing.JComboBox<>();
+        classtxt = new javax.swing.JComboBox<>();
+        starttxt = new javax.swing.JComboBox<>();
+        endtxt = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -192,6 +196,35 @@ public final class Edit extends javax.swing.JFrame {
 
         gendertxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
+        jLabel2.setText("Level");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 255));
+
+        leveltxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        leveltxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leveltxtActionPerformed(evt);
+            }
+        });
+
+        classtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classtxtActionPerformed(evt);
+            }
+        });
+
+        starttxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                starttxtActionPerformed(evt);
+            }
+        });
+
+        endtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endtxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -214,7 +247,8 @@ public final class Edit extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8))
+                    .addComponent(jLabel2))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(contacttxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
@@ -225,9 +259,10 @@ public final class Edit extends javax.swing.JFrame {
                     .addComponent(birthdatetxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(addresstxt, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gendertxt, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(classtxt)
-                    .addComponent(starttxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(endtxt))
+                    .addComponent(leveltxt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(classtxt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(starttxt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(endtxt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -257,19 +292,23 @@ public final class Edit extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(birthdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(leveltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(classtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(classtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(starttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(starttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(endtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(endtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
@@ -277,7 +316,7 @@ public final class Edit extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(contacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(16, 16, 16))
         );
@@ -416,10 +455,14 @@ public final class Edit extends javax.swing.JFrame {
         addresstxt.setSelectedItem("");
         emailtxt.setText("");
         contacttxt.setText("");
-        classtxt.setText("");
-        starttxt.setText("");
-        endtxt.setText("");
+//        classtxt.setSelectedItem("");
+//        classtxt.removeAllItems();
+//        starttxt.removeAllItems();
+//        endtxt.removeAllItems();
+        starttxt.setSelectedItem("");
+        endtxt.setSelectedItem("");
         birthdatetxt.setText("");
+        
 //        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -470,12 +513,21 @@ public final class Edit extends javax.swing.JFrame {
         String address=tblModel.getValueAt(jTable2.getSelectedRow(),6).toString();
         String classroom=tblModel.getValueAt(jTable2.getSelectedRow(),7).toString();
         
-//        String level=tblModel.getValueAt(jTable2.getSelectedRow(),9).toString();
+        String level=tblModel.getValueAt(jTable2.getSelectedRow(),9).toString();
         String start=tblModel.getValueAt(jTable2.getSelectedRow(),10).toString();
         String end=tblModel.getValueAt(jTable2.getSelectedRow(),11).toString();
         String contact=tblModel.getValueAt(jTable2.getSelectedRow(),12).toString();
         
         LocalDate date = LocalDate.parse(birth, formatter);
+//        System.out.println("startime");
+//        System.out.println(start);
+         if (starttxt.getItemCount() > 0 && starttxt.getItemAt(0) != null) {
+        starttxt.setSelectedItem(start);
+        } 
+        endtxt.setSelectedItem(end);
+        leveltxt.setSelectedItem(level);
+        classtxt.setSelectedItem(classroom);
+        
         idtxt.setText(id);
         firstnametxt.setText(firstName);
         lastnametxt.setText(lastName);
@@ -483,16 +535,33 @@ public final class Edit extends javax.swing.JFrame {
         birthdatetxt.setDate(date);
         emailtxt.setText(email);
         addresstxt.setSelectedItem(address);
-        classtxt.setText(classroom);
-        starttxt.setText(start);
-        endtxt.setText(end);
+        
         contacttxt.setText(contact);
-       
+        
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void addresstxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addresstxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addresstxtActionPerformed
+
+    private void leveltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leveltxtActionPerformed
+        setclass();
+//        setstarttime();
+    }//GEN-LAST:event_leveltxtActionPerformed
+
+    private void starttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_starttxtActionPerformed
+        setendtime();
+//    classtxt.removeAllItems();
+    }//GEN-LAST:event_starttxtActionPerformed
+
+    private void classtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classtxtActionPerformed
+        
+        setstarttime();
+    }//GEN-LAST:event_classtxtActionPerformed
+
+    private void endtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endtxtActionPerformed
+        
+    }//GEN-LAST:event_endtxtActionPerformed
 public void insert() throws ParseException {
     String firstname = firstnametxt.getText();
     String lastname = lastnametxt.getText();
@@ -505,12 +574,12 @@ public void insert() throws ParseException {
 //    Date birthFormatter = new SimpleDateFormat("MMMM d, yyyy").parse(birthString);
     // Convert to SQL Date
 
-    int classroom = Integer.parseInt(classtxt.getText()); 
+    int classroom = Integer.parseInt(classtxt.getSelectedItem().toString()); 
     DateFormat timeFormatter = new SimpleDateFormat("HH:mm");
 
     // Convert start and end strings to java.sql.Time
-    Time start = new Time(timeFormatter.parse(starttxt.getText()).getTime()); // Assuming you have a field named starttxt
-    Time end = new Time(timeFormatter.parse(endtxt.getText()).getTime());
+    Time start = new Time(timeFormatter.parse(starttxt.getSelectedItem().toString()).getTime()); 
+    Time end = new Time(timeFormatter.parse(endtxt.getSelectedItem().toString()).getTime());
     int contact = Integer.parseInt(contacttxt.getText());
 
     String insertQuery = """
@@ -542,55 +611,52 @@ public void insert() throws ParseException {
 
 
 
-public void update () throws ParseException{
-    
-    int id =Integer.parseInt(idtxt.getText());
-    String firstname=firstnametxt.getText();
-    String lastname=lastnametxt.getText();
-    String gender=gendertxt.getSelectedItem().toString();
-    String email=emailtxt.getText();
-    String address=addresstxt.getSelectedItem().toString();
-    
-    int classroom=Integer.parseInt(classtxt.getText());
-    
+public void update() throws ParseException {
+    int id = Integer.parseInt(idtxt.getText());
+    String firstname = firstnametxt.getText();
+    String lastname = lastnametxt.getText();
+    String gender = gendertxt.getSelectedItem().toString();
+    String email = emailtxt.getText();
+    String address = addresstxt.getSelectedItem().toString();
+    int classroom = Integer.parseInt(classtxt.getSelectedItem().toString());
     DateFormat timeFormatter = new SimpleDateFormat("HH:mm");
 
     // Convert start and end strings to java.sql.Time
-    Time start = new Time(timeFormatter.parse(starttxt.getText()).getTime()); // Assuming you have a field named starttxt
-    Time end = new Time(timeFormatter.parse(endtxt.getText()).getTime());
-    
-    int contact =Integer.parseInt(contacttxt.getText());
-    String birth =birthdatetxt.getDate().toString();
-    
-    String updateQuery="CALL UpdateStudent(?,?,?,?,?,?,?,?,?,?,?)";
-    
+    Time start = new Time(timeFormatter.parse(starttxt.getSelectedItem().toString()).getTime());
+    Time end = new Time(timeFormatter.parse(endtxt.getSelectedItem().toString()).getTime());
+
+    // Convert the date to java.sql.Date
+//    java.sql.Date birthDate = new java.sql.Date(birthdatetxt.getDate().getTime());
+    String birthDate=birthdatetxt.getDate().toString();
+    int contact = Integer.parseInt(contacttxt.getText());
+
+    String updateQuery = "CALL UpdateStudent(?,?,?,?,?,?,?,?,?,?,?)";
+
     try (Connection con = Connect.getConnection(); 
-         PreparedStatement pstmt = con.prepareStatement(updateQuery))
-         {
-        
+         PreparedStatement pstmt = con.prepareStatement(updateQuery)) {
+
         // Set parameters for the prepared statement
-        pstmt.setInt(1,id);
+        pstmt.setInt(1, id);
         pstmt.setString(2, firstname);
         pstmt.setString(3, lastname);
         pstmt.setString(4, gender);
-        pstmt.setString(5,birth);
+        pstmt.setString(5, birthDate); // Use java.sql.Date for date
         pstmt.setString(6, email);
         pstmt.setString(7, address);
-        
         pstmt.setInt(8, classroom);
         pstmt.setTime(9, start);
-        pstmt.setTime(10,end);
-        pstmt.setInt(11,contact);
-        
-        
-        // Execute the insert operation
+        pstmt.setTime(10, end);
+        pstmt.setInt(11, contact);
+
+        // Execute the update operation
         int rowsAffected = pstmt.executeUpdate();
+
+        // Refresh the table after the update
         Student_information.TB(jTable2);
 
-}       catch (SQLException ex) {
-            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    Student_information.TB(jTable2);
+    } catch (SQLException ex) {
+        Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+    }
 }
 
 
@@ -611,99 +677,165 @@ public void Delete(){
         Student_information.TB(jTable2);
     }
 
-//public void setclass(){
-//    int level=Integer.parseInt(leveltxt.getSelectedItem().toString());
-//    String classquery="SELECT DISTINCT roomNumber  FROM class WHERE Level=?; ";
-//    try(Connection con =Connect.getConnection();
-//        PreparedStatement pstmt=con.prepareStatement(classquery);
-//        ){
-//        pstmt.setInt(1, level);
-//        classtxt.removeAllItems();
-//        try(ResultSet rs=pstmt.executeQuery()){
-//            while(rs.next()){
-//            int classroom=rs.getInt("roomNumber");
-//            String parseclass=Integer.toString(classroom);
-//            classtxt.addItem(parseclass);
-//        }
-//        }
-//        
-//        
-//    }   catch (SQLException ex) {
-//            Logger.getLogger(CourseEdit.class.getName()).log(Level.SEVERE, null, ex);
-//        }  
+public void setclass() {
+    // Parse the selected level from the JComboBox
+    Object selectedLevel = leveltxt.getSelectedItem();
+    if (selectedLevel == null) {
+        // Handle the case where no item is selected
+        System.out.println("No level selected");
+        return;
+    }
 
-//}
-//public void setstarttime() {
-//    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    int level;
+    try {
+        level = Integer.parseInt(selectedLevel.toString());
+    } catch (NumberFormatException e) {
+        // Handle the case where the selected item cannot be parsed as an integer
+        Logger.getLogger(CourseEdit.class.getName()).log(Level.WARNING, "Invalid level format", e);
+        return;
+    }
+
+    // SQL query to select distinct room numbers for the given level
+    String classquery = "SELECT DISTINCT roomNumber FROM class WHERE level = ?";
+
+    try (
+        // Establish a connection to the database
+        Connection con = Connect.getConnection();
+        // Prepare the statement with the query
+        PreparedStatement pstmt = con.prepareStatement(classquery)
+    ) {
+        // Set the level parameter in the query
+        pstmt.setInt(1, level);
+
+        // Clear all items from the JComboBox before adding new ones
+        classtxt.removeAllItems();
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            // Iterate through the result set and add each room number to the JComboBox
+            while (rs.next()) {
+                int classroom = rs.getInt("roomNumber");
+                classtxt.addItem(String.valueOf(classroom)); // Convert int to String and add to JComboBox
+            }
+        }
+
+    } catch (SQLException ex) {
+        // Log any SQL exceptions that occur
+        Logger.getLogger(CourseEdit.class.getName()).log(Level.SEVERE, "Error fetching class data", ex);
+    }
+}
+
+
+public void setstarttime() {
+    // DateTimeFormatter to format the time as "HH:mm"
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+    // SQL query to select start time for the given room number
+    String timeQuery = "SELECT starttime FROM class WHERE roomnumber = ? AND level=? ";
+    int level=Integer.parseInt(leveltxt.getSelectedItem().toString());
+    // Parse the selected room number from the JComboBox
+    Object selectedItem = classtxt.getSelectedItem();
+    if (selectedItem == null) {
+        // Handle the case where no item is selected
+        return;
+    }
+    
+    int classnumber;
+    try {
+        classnumber = Integer.parseInt(selectedItem.toString());
+        System.out.println("classnumber");
+        System.out.println(classnumber);
+    } catch (NumberFormatException e) {
+        // Handle the case where the selected item cannot be parsed as an integer
+        Logger.getLogger(Edit.class.getName()).log(Level.WARNING, "Invalid class number format", e);
+        return;
+    }
+
+    try (
+        // Establish a connection to the database
+        Connection con = Connect.getConnection();
+        // Prepare the statement with the query
+        PreparedStatement pstmt = con.prepareStatement(timeQuery)
+    ) {
+        // Set the room number parameter in the query
+        pstmt.setInt(1, classnumber);
+        pstmt.setInt(2,level);
+
+        // Clear the starttxt JComboBox before adding new items
+        starttxt.removeAllItems();
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            // Iterate through the result set and add each start time to the JComboBox
+            while (rs.next()) {
+                Time startTime = rs.getTime("starttime");
+                System.out.println(startTime);
+                if (startTime != null) {
+                    // Convert SQL Time to LocalTime and format it
+                    LocalTime localStartTime = startTime.toLocalTime();
+                    String start = localStartTime.format(formatter);
+
+                    // Add formatted time to the starttxt JComboBox
+                    starttxt.addItem(start);
+                }
+            }
+        }
+
+    } catch (SQLException ex) {
+        // Log any SQL exceptions that occur
+        Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, "Error fetching start times", ex);
+    }
+}
+
 //
-//    String timeQuery = """
-//        SELECT starttime FROM class
-//        WHERE roomnumber = ?;
-//    """;
-//
-//    int classnumber = Integer.parseInt(classtxt.getSelectedItem().toString());
-//
-//    try (Connection con = Connect.getConnection();
-//         PreparedStatement pstmt = con.prepareStatement(timeQuery)) {
-//
-//        pstmt.setInt(1, classnumber);
-//
-//        try (ResultSet rs = pstmt.executeQuery()) {
-//            classtxt.removeAllItems(); // Clear starttxt JComboBox
-//
-//            while (rs.next()) {
-//                Time startTime = rs.getTime("starttime");
-//                
-//                if (startTime != null) {
-//                    LocalTime localStartTime = startTime.toLocalTime();
-//                    String start = localStartTime.format(formatter);
-//                    
-//                    classtxt.addItem(start); // Add formatted time to starttxt JComboBox
-//                }
-//            }
-//        }
-//    } catch (SQLException ex) {
-//        Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, "Error fetching start times", ex);
-//    }
-//}
-//
-//public void setendtime() {
-//    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-//
-//    String timeQuery = """
-//        SELECT endtime FROM class
-//        WHERE roomnumber = ? AND starttime = ?;
-//    """;
-//
-//    int classnumber = Integer.parseInt(classtxt.getSelectedItem().toString());
-//    String startText = classtxt.getSelectedItem().toString();
-//
-//    LocalTime start = LocalTime.parse(startText, formatter);
-//
-//    try (Connection con = Connect.getConnection();
-//         PreparedStatement pstmt = con.prepareStatement(timeQuery)) {
-//
-//        pstmt.setInt(1, classnumber);
-//        pstmt.setTime(2, Time.valueOf(start));
-//
-//        try (ResultSet rs = pstmt.executeQuery()) {
-//            endtxt.removeAllItems(); // Clear endtxt JComboBox
-//
-//            while (rs.next()) {
-//                Time endTime = rs.getTime("endtime");
-//                
-//                if (endTime != null) {
-//                    LocalTime localEndTime = endTime.toLocalTime();
-//                    String end = localEndTime.format(formatter);
-//                    
-//                    endtxt.addItem(end); // Add formatted time to endtxt JComboBox
-//                }
-//            }
-//        }
-//    } catch (SQLException ex) {
-//        Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, "Error fetching end times", ex);
-//    }
-//}
+public void setendtime() {
+    // Formatter for time
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+    // SQL query to fetch end time based on room number and start time
+    String timeQuery = """
+        SELECT endtime FROM class
+        WHERE roomnumber = ? AND starttime = ?;
+    """;
+
+    // Check if selected item is null
+    Object selectedClass = classtxt.getSelectedItem();
+    Object selectedStartTime = starttxt.getSelectedItem();
+    
+    if (selectedClass == null || selectedStartTime == null) {
+        return; // No class or start time is selected, so exit the method
+    }
+
+    int classnumber = Integer.parseInt(selectedClass.toString());
+    String startText = selectedStartTime.toString();
+
+    // Parse the start time from text
+    LocalTime start = LocalTime.parse(startText, formatter);
+
+    try (Connection con = Connect.getConnection();
+         PreparedStatement pstmt = con.prepareStatement(timeQuery)) {
+
+        // Set parameters for the prepared statement
+        pstmt.setInt(1, classnumber);
+        pstmt.setTime(2, Time.valueOf(start)); // Convert LocalTime to java.sql.Time
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            endtxt.removeAllItems(); // Clear endtxt JComboBox
+
+            while (rs.next()) {
+                Time endTime = rs.getTime("endtime");
+                
+                if (endTime != null) {
+                    LocalTime localEndTime = endTime.toLocalTime();
+                    String end = localEndTime.format(formatter);
+                    
+                    endtxt.addItem(end); // Add formatted time to endtxt JComboBox
+                }
+            }
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, "Error fetching end times", ex);
+    }
+}
+
 
 
     /**
@@ -769,10 +901,10 @@ public void Delete(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> addresstxt;
     private com.github.lgooddatepicker.components.DatePicker birthdatetxt;
-    private javax.swing.JTextField classtxt;
+    private javax.swing.JComboBox<String> classtxt;
     private javax.swing.JTextField contacttxt;
     private javax.swing.JTextField emailtxt;
-    private javax.swing.JTextField endtxt;
+    private javax.swing.JComboBox<String> endtxt;
     private javax.swing.JTextField firstnametxt;
     private javax.swing.JComboBox<String> gendertxt;
     private javax.swing.JTextField idtxt;
@@ -786,6 +918,7 @@ public void Delete(){
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -797,6 +930,7 @@ public void Delete(){
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField lastnametxt;
-    private javax.swing.JTextField starttxt;
+    private javax.swing.JComboBox<String> leveltxt;
+    private javax.swing.JComboBox<String> starttxt;
     // End of variables declaration//GEN-END:variables
 }

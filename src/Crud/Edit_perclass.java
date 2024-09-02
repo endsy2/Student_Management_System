@@ -342,7 +342,9 @@ public final class Edit_perclass extends javax.swing.JFrame {
     int id=Integer.parseInt(idtxt.getText()); 
     double midtermScore=Double.parseDouble(midtermtxt.getText());
     double finalScore=Double.parseDouble(finaltxt.getText());
-   
+        System.out.println("score");
+        System.out.println(midtermScore);
+        System.out.println(finalScore);
     
     try (Connection con = Connect.getConnection();
          PreparedStatement prsm = con.prepareStatement(insertquery)) {
