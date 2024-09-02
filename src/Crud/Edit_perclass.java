@@ -62,9 +62,9 @@ public final class Edit_perclass extends javax.swing.JFrame {
           try(ResultSet rs=prsm.executeQuery()){
               while(rs.next()){
               tb.addRow(new Object[]{
-                 rs.getInt("Student_ID"),
-                rs.getString("FirstName"),
-                rs.getString("LastName"),
+                 rs.getInt("idstudent"),
+                rs.getString("firstname"),
+                rs.getString("lastname"),
                 rs.getDouble("midterm"),
                 rs.getDouble("final"),
                 rs.getDouble("total"), 
@@ -93,8 +93,6 @@ public final class Edit_perclass extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         finaltxt = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        attendenttxt = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         idtxt = new javax.swing.JTextField();
@@ -128,19 +126,6 @@ public final class Edit_perclass extends javax.swing.JFrame {
         finaltxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finaltxtActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel10.setText("Attendent:");
-
-        attendenttxt.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        attendenttxt.setForeground(new java.awt.Color(153, 153, 255));
-        attendenttxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        attendenttxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attendenttxtActionPerformed(evt);
             }
         });
 
@@ -195,11 +180,9 @@ public final class Edit_perclass extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(attendenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(midtermtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(finaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,11 +202,7 @@ public final class Edit_perclass extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(finaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(attendenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(124, 124, 124)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
                 .addComponent(jLabel3)
@@ -334,17 +313,13 @@ public final class Edit_perclass extends javax.swing.JFrame {
         String id=tblModel.getValueAt(display.getSelectedRow(),0).toString();
         String midtermscore =tblModel.getValueAt(display.getSelectedRow(),3).toString();
         String finalscore= tblModel.getValueAt(display.getSelectedRow(),4).toString();
-        String totalAttendance=tblModel.getValueAt(display.getSelectedRow(), 6).toString();
+        
         
         idtxt.setText(id);
         midtermtxt.setText(midtermscore);
         finaltxt.setText(finalscore);
-        attendenttxt.setText(totalAttendance);
+        
     }//GEN-LAST:event_displayMouseClicked
-
-    private void attendenttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendenttxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attendenttxtActionPerformed
 
     private void finaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finaltxtActionPerformed
         // TODO add your handling code here:
@@ -363,11 +338,13 @@ public final class Edit_perclass extends javax.swing.JFrame {
         display(classID,start,end);
     }//GEN-LAST:event_jButton2ActionPerformed
     public void update() {
-    String insertquery = "{CALL updateStudentPerClass(?,?,?,?)}"; // Corrected query name
+    String insertquery = "{CALL updateStudentPerClass(?,?,?)}"; // Corrected query name
     int id=Integer.parseInt(idtxt.getText()); 
     double midtermScore=Double.parseDouble(midtermtxt.getText());
     double finalScore=Double.parseDouble(finaltxt.getText());
-    double attendance=Double.parseDouble(attendenttxt.getText());
+        System.out.println("score");
+        System.out.println(midtermScore);
+        System.out.println(finalScore);
     
     try (Connection con = Connect.getConnection();
          PreparedStatement prsm = con.prepareStatement(insertquery)) {
@@ -375,7 +352,6 @@ public final class Edit_perclass extends javax.swing.JFrame {
         prsm.setInt(1,id);
         prsm.setDouble(2, midtermScore);
         prsm.setDouble(3, finalScore);
-        prsm.setDouble(4,attendance);
 
         prsm.executeUpdate(); // Execute the update
 
@@ -386,13 +362,11 @@ public final class Edit_perclass extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField attendenttxt;
     private javax.swing.JTable display;
     private javax.swing.JTextField finaltxt;
     private javax.swing.JTextField idtxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -266,7 +266,8 @@ public List<Course_data> datalist() {
         String query = """
                 SELECT * FROM class 
                 LEFT JOIN teacher ON class.teacherID = teacher.idteacher
-                INNER JOIN subject ON class.subjectid = subject.idsubject""";
+                INNER JOIN subject ON class.subjectid = subject.idsubject
+                ORDER BY roomnumber;""";
 
         try (ResultSet rs = state.executeQuery(query)) {
             while (rs.next()) {
